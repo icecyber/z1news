@@ -1,24 +1,19 @@
 import { gql, useQuery } from '@apollo/client';
-import client from '../lib/apollo';
-
-const GET_MENU = gql`
-  query Menu {
-    menuItems(where: { location: HCMS_MENU_FOOTER }) {
-      nodes {
-        id
-        label
-        path
-        url
-      }
-    }
-  }
-`;
+import GetMenu from '../queries/home/GET_MENU';
 
 const Home = () => {
-  const { data, error, loading } = useQuery(GET_MENU);
-  console.log(data);
+  const Menu = GetMenu().data?.menuItems?.edges;
+  console.log(Menu);
 
-  return <div className="">hi</div>;
+  return (
+    <div className="flex gap-4 justify-between">
+      {Menu?.map((menu: any) => (
+        <div key={menu.node.id}>
+          <h1>{menu.node.label}</h1>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Home;
