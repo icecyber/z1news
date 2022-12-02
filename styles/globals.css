@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,8 +10,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Battambang';
 }
 
 a {
@@ -17,6 +20,18 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Font */
+
+.battambang {
+  font-family: 'Battambang', cursive !important;
+}
+.bokor {
+  font-family: 'Bokor', cursive !important;
+}
+.koulen {
+  font-family: 'Koulen', cursive !important;
 }
 
 @media (prefers-color-scheme: dark) {
