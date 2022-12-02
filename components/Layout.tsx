@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import TopNav_Comp from './home/TopNav_Comp';
 
-const Layout = ({ children }: any) => {
+const Layout = ({ socialmedia, contact, children }: any) => {
   return (
     <>
       <Head>
@@ -13,9 +13,9 @@ const Layout = ({ children }: any) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="max-w-screen-xl mx-auto">
-        <TopNav_Comp />
-        <main>{children}</main>
+      <div>
+        <TopNav_Comp socialmedia={socialmedia} contact={contact} />
+        <main className="max-w-screen-xl mx-auto">{children}</main>
         <footer>footer</footer>
       </div>
     </>
