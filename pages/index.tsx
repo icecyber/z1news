@@ -5,6 +5,7 @@ import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 
 const Home = () => {
   const data = useQuery(GET_HOMEPAGE);
+
   const socialMedia = data?.data?.SocialMedia.children.nodes;
   const contact = data?.data?.ContactInfo.children.nodes;
 
