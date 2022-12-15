@@ -4,8 +4,7 @@ const MENU = `
         node {
           id
           label
-          url
-          path
+          uri
         }
       }
     }
