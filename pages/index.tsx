@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import client from '../lib/apollo';
@@ -14,6 +15,7 @@ const Home = ({ data }: any) => {
   return (
     <Layout>
       <p>{DataConvert}</p>
+      <Link href={'/test'}>test</Link>
     </Layout>
   );
 };
