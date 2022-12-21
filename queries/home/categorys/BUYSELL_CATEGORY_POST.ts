@@ -1,5 +1,5 @@
 export const BUYSELL_CATEGORY_POST = `
-BuySellCategoryPost: posts(where: {categoryName: "ទិញលក់"}, first: 5) {
+BuySellCategoryPost: posts(where: {categoryName: "buysell"}, first: 5) {
     edges {
       node {
         id

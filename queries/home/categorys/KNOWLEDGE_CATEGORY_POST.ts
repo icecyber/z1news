@@ -1,5 +1,5 @@
 export const KNOWLEDGE_CATEGORY_POST = `
-KnowLedgeCategoryPost: posts(where: {categoryName: "ចំណេះដឹងទូទៅ"}, first: 5) {
+KnowLedgeCategoryPost: posts(where: {categoryName: "knowledge"}, first: 5) {
     edges {
       node {
         id

@@ -18,6 +18,7 @@ import { SIDEBAR_ADS } from '../sidebar/SIDEBAR_ADS';
 import { ABOUT_Z1NEWS } from '../general_data/ABOUT_Z1NEWS';
 import { TERMS_AND_CONDITIONS } from '../general_data/TERMS_AND_CONDITIONS';
 import { POLICY_PRIVACY } from '../general_data/POLICY_PRIVACY';
+import { KNOWLEDGE_CATEGORY_POST } from '../home/categorys/KNOWLEDGE_CATEGORY_POST';
 
 export const GET_HOMEPAGE = gql`
     query HomePage {
@@ -33,6 +34,7 @@ export const GET_HOMEPAGE = gql`
         ${PROJECT_CATEGORY_POST}
         ${ECONOMIC_CATEGORY_POST}
         ${BUYSELL_CATEGORY_POST}
+        ${KNOWLEDGE_CATEGORY_POST}
         ${BOTTOM_BANNER}
         ${SIDEBAR_VIDEO}
         ${SPONSOR}

@@ -1,5 +1,5 @@
 export const REALESTATE_CATEGORY_POST = `
-RealEstateCategoryPost: posts(where: {categoryName: "អចលនទ្រព្យ"}, first: 5) {
+RealEstateCategoryPost: posts(where: {categoryName: "realestate"}, first: 5) {
   edges {
     node {
       id

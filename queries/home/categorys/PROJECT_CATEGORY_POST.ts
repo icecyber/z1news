@@ -1,5 +1,5 @@
 export const PROJECT_CATEGORY_POST = `
-ProjectCategoryPost: posts(where: {categoryName: "គំរោង"}, first: 5) {
+ProjectCategoryPost: posts(where: {categoryName: "projects"}, first: 5) {
     edges {
       node {
         id

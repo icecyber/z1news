@@ -1,5 +1,5 @@
 export const ECONOMIC_CATEGORY_POST = `
-EconomicCategoryPost: posts(where: {categoryName: "សេដ្ថកិច្ច"}, first: 5) {
+EconomicCategoryPost: posts(where: {categoryName: "economic"}, first: 5) {
     edges {
       node {
         id
