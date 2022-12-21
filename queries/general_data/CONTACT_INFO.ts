@@ -16,7 +16,6 @@ ContactInfo : page(id: "contact-info", idType: URI) {
               backgroundColor
               icon
               iconColor
-              label
               link
             }
           }
