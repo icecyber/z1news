@@ -1,10 +1,11 @@
 import client from '../../lib/apollo';
-import { GET_CATEGORY_POSTS } from '../../queries/service/GET_PROJECTS_PAGE';
+import { GET_CATEGORY_POSTS } from '../../queries/service/GET_CATEGORY_PAGE';
+import { cleanGraphQLResponse } from '../../utils/clean-graphql-response';
 
 const CategoryPages = ({ data }: any) => {
-  console.log(data);
+  const DATA = JSON.stringify(cleanGraphQLResponse(data), null, 4);
 
-  return <div>id</div>;
+  return <pre>{DATA}</pre>;
 };
 
 export default CategoryPages;
@@ -22,14 +23,12 @@ export async function getStaticPaths() {
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps({ params }: any) {
-  console.log(params.category_name);
   const { data } = await client.query({
     query: GET_CATEGORY_POSTS,
     variables: {
       category: params.category_name,
     },
   });
-  console.log(data);
 
   return {
     // Passed to the page component as props
