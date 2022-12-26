@@ -35,53 +35,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
   const { data } = await client.query({
-    query: gql`
-      query PostDetail($id: String) {
-        PostDetail: post(id: $id, idType: DATABASE_ID) {
-          id
-          title
-          content
-          categories {
-            edges {
-              node {
-                id
-                name
-              }
-            }
-          }
-          tags {
-            edges {
-              node {
-                id
-                name
-                uri
-              }
-            }
-          }
-          featuredImage {
-            node {
-              id
-              altText
-              sourceUrl
-            }
-          }
-          author {
-            node {
-              id
-              name
-            }
-          }
-          date
-        }
-      }
-    `,
+    query: GET_DETAIL_PAGE,
     variables: {
-      id: params.id,
+      id: params?.id,
     },
   });
 
   return {
     // Passed to the page component as props
-    props: { data: data },
+    props: {
+      data,
+    },
   };
 }

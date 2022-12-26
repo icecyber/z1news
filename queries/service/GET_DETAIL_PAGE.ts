@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_DETAIL_PAGE = gql`
-  query PostDetail($id: String) {
+  query PostDetail($id: ID!) {
     PostDetail: post(id: $id, idType: DATABASE_ID) {
       id
       title
