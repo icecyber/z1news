@@ -17,6 +17,7 @@ ContactInfo : page(id: "contact-info", idType: URI) {
               icon
               iconColor
               link
+              text
             }
           }
         }

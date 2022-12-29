@@ -44,3 +44,9 @@ a {
     background: black;
   }
 }
+
+/* Topnav */
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

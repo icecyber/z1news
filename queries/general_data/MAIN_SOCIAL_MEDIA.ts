@@ -2,7 +2,7 @@ export const MAIN_SOCIAL_MEDIA = `
 SocialMedia: page(id: "socialmedia", idType: URI) {
   id
   title
-  children {
+  children(where: {orderby: {order: ASC, field: MENU_ORDER}}) {
     edges {
       node {
         id

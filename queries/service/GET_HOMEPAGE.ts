@@ -19,10 +19,23 @@ import { ABOUT_Z1NEWS } from '../general_data/ABOUT_Z1NEWS';
 import { TERMS_AND_CONDITIONS } from '../general_data/TERMS_AND_CONDITIONS';
 import { POLICY_PRIVACY } from '../general_data/POLICY_PRIVACY';
 import { KNOWLEDGE_CATEGORY_POST } from '../home/categorys/KNOWLEDGE_CATEGORY_POST';
-import { GET_LAYOUT } from './GET_LAYOUT';
 
 export const GET_HOMEPAGE = gql`
     query HomePage {
+        ${FLAG}
+                ${MAIN_SOCIAL_MEDIA}
+                ${CONTACT_INFO}
+                ${LOGO}
+                ${TOP_BANNER}
+                ${MENU}
+                ${LAST_POST}
+                ${BOTTOM_BANNER}
+                ${SIDEBAR_VIDEO}
+                ${SPONSOR}
+                ${SIDEBAR_ADS}
+                ${ABOUT_Z1NEWS}
+                ${TERMS_AND_CONDITIONS}
+                ${POLICY_PRIVACY}
         ${LAST_POST}
         ${CATEGORY_BANNER}
         ${REALESTATE_CATEGORY_POST}
