@@ -13,7 +13,10 @@ const Layout = ({
   logo,
   logoads,
   children,
+  menu,
 }: any) => {
+  const [isMenu, setIsMenu] = useState(true);
+
   return (
     <>
       <Head>
@@ -156,7 +159,42 @@ const Layout = ({
           </div>
         </div>
         {/* Menu */}
-        <div></div>
+        <div className="bg-primaryColor flex justify-between items-center px-2 relative">
+          <div className="flex items-center ">
+            <button
+              className="bg-secondaryColor"
+              onClick={() => setIsMenu(!isMenu)}
+            >
+              {isMenu ? (
+                <i className="fa-solid fa-x text-white py-2 px-4 text-xl"></i>
+              ) : (
+                <i className="fa-solid fa-bars text-white py-2 px-4 text-xl"></i>
+              )}
+            </button>
+            <h1 className="text-white text-xl font-medium  py-2 px-4">
+              Z1 News
+            </h1>
+          </div>
+          <button>
+            <i className="fa-solid fa-magnifying-glass text-white text-xl py-2 px-4"></i>
+          </button>
+          {/* Menu Items */}
+          {isMenu ? (
+            <div className="bg-primaryColor absolute bottom-[-250px] w-full left-0 animate__animated animate__bounce">
+              <ul>
+                {menu.map((item: any) => (
+                  <li
+                    key={item.id}
+                    className="text-white text-base leading-[50px] px-5"
+                  >
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+
         <main className="max-w-screen-xl mx-auto">{children}</main>
         <footer>footer</footer>
       </div>

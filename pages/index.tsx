@@ -6,7 +6,7 @@ import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 
 const Home = ({ data, loading }: any) => {
   const DATA = cleanGraphQLResponse(data);
-  console.log(loading, data);
+  console.log(DATA);
   if (loading) {
     return <p>loading...</p>;
   } else if (DATA) {
@@ -17,6 +17,7 @@ const Home = ({ data, loading }: any) => {
         contactinfo={DATA.ContactInfo}
         logo={DATA.Z1Logo}
         logoads={DATA.TopBanner}
+        menu={DATA.menuItems}
       >
         <pre>hi</pre>
       </Layout>
