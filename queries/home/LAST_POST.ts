@@ -5,6 +5,7 @@ LastPost: posts(last: 5) {
       id
       title
       date
+      databaseId
       tags {
         edges {
           node {
@@ -16,6 +17,9 @@ LastPost: posts(last: 5) {
       featuredImage {
         node {
           id
+          title
+          altText
+          sourceUrl
         }
       }
     }

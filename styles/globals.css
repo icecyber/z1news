@@ -12,6 +12,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Battambang';
+  line-height: 2;
+  word-wrap: break-word;
 }
 
 a {
@@ -49,4 +51,10 @@ a {
 
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+/* SidebarTitle */
+
+.sidebar-title::after {
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
 }

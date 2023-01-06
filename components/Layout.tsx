@@ -5,6 +5,12 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Langauge } from '../Types/Layout';
 import LogoAds from './home/LogoAds';
+import LastNewsTextComp from './home/LastNewsTextComp';
+import FooterLastNewsComp from './footer/FooterLastNewsComp';
+import { url } from 'inspector';
+import FooterAboutComp from './footer/FooterAboutComp';
+import FooterSocialMedia from './footer/FooterSocialMedia';
+import FooterContact from './footer/FooterContact';
 
 const Layout = ({
   flag,
@@ -14,8 +20,12 @@ const Layout = ({
   logoads,
   children,
   menu,
+  lastposts,
+  footerbg,
+  about,
 }: any) => {
-  const [isMenu, setIsMenu] = useState(true);
+  const [isMenu, setIsMenu] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
   return (
     <>
@@ -159,44 +169,93 @@ const Layout = ({
           </div>
         </div>
         {/* Menu */}
-        <div className="bg-primaryColor flex justify-between items-center px-2 relative">
-          <div className="flex items-center ">
-            <button
-              className="bg-secondaryColor"
-              onClick={() => setIsMenu(!isMenu)}
-            >
-              {isMenu ? (
-                <i className="fa-solid fa-x text-white py-2 px-4 text-xl"></i>
-              ) : (
-                <i className="fa-solid fa-bars text-white py-2 px-4 text-xl"></i>
-              )}
-            </button>
-            <h1 className="text-white text-xl font-medium  py-2 px-4">
-              Z1 News
-            </h1>
-          </div>
-          <button>
-            <i className="fa-solid fa-magnifying-glass text-white text-xl py-2 px-4"></i>
-          </button>
-          {/* Menu Items */}
-          {isMenu ? (
-            <div className="bg-primaryColor absolute bottom-[-250px] w-full left-0 animate__animated animate__bounce">
-              <ul>
+        <div className="bg-primaryColor">
+          <div className="bg-primaryColor flex justify-between items-center px-4 relative container mx-auto w-full">
+            {/* Menu Mobile */}
+            <div className="flex items-center lg:hidden">
+              <button
+                className="bg-secondaryColor"
+                onClick={() => setIsMenu(!isMenu)}
+              >
+                {isMenu ? (
+                  <i className="fa-solid fa-x text-white py-2 px-4 text-xl"></i>
+                ) : (
+                  <i className="fa-solid fa-bars text-white py-2 px-4 text-xl"></i>
+                )}
+              </button>
+              <h1 className="text-white text-xl font-medium  py-2 px-4">
+                Z1 News
+              </h1>
+            </div>
+            {/* Big Menu */}
+            <div className="hidden lg:block ">
+              <ul className="flex ">
                 {menu.map((item: any) => (
-                  <li
-                    key={item.id}
-                    className="text-white text-base leading-[50px] px-5"
-                  >
-                    {item.label}
-                  </li>
+                  <Link href={item.uri} key={item.id}>
+                    <li className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer">
+                      {item.label}
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>
-          ) : null}
+            <button>
+              <i className="fa-solid fa-magnifying-glass text-white text-xl py-2 px-4"></i>
+            </button>
+            {/* Menu Items Darwer*/}
+            {isMenu ? (
+              <div className="bg-primaryColor absolute bottom-[-250px] w-full left-0 animate__animated animate__bounce">
+                <ul>
+                  {menu.map((item: any) => (
+                    <li
+                      key={item.id}
+                      className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer"
+                    >
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {/* Search Drawer */}
+            {isSearch ? (
+              <div className="absolute right-0">
+                <input type="text" placeholder="ស្វែងរកពាក្យ..." />
+              </div>
+            ) : null}
+          </div>
         </div>
-
-        <main className="max-w-screen-xl mx-auto">{children}</main>
-        <footer>footer</footer>
+        {/* LastNews Slider */}
+        <div className="px-3 container mx-auto">
+          <LastNewsTextComp lastposts={lastposts} />
+        </div>
+        <main className="max-w-screen-xl mx-auto ">{children}</main>
+        <footer
+          style={{
+            background: 'url(' + `${footerbg.featuredImage.sourceUrl} ` + ')',
+            backgroundBlendMode: 'color',
+            backgroundColor: 'rgb(47 43 90 / 90%)',
+          }}
+        >
+          <div className="container mx-auto px-3 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-3">
+            <FooterLastNewsComp lastnews={lastposts} />
+            <FooterAboutComp about={about} />
+            <FooterSocialMedia socialmedia={socialmedia} />
+            <FooterContact contactinfo={contactinfo} />
+          </div>
+        </footer>
+        <div className=" w-full bg-[#212529]">
+          <div className="container mx-auto md:flex">
+            <div className=" text-[#d4d4d4] text-center md:text-left py-3 px-4 w-full">
+              <p>រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ Z1 News ឆ្នាំ2023.</p>
+            </div>
+            <div className=" text-[#d4d4d4] text-center  flex gap-2 justify-center md:justify-end py-3 px-4 w-full">
+              <span>លក្ខខណ្ឌ</span>
+              <span>|</span>
+              <span>គោលការណ៏ភាពឯកជន</span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
