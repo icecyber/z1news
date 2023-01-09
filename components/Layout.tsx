@@ -23,7 +23,9 @@ const Layout = ({
   lastposts,
   footerbg,
   about,
+  bottombanner,
 }: any) => {
+  console.log('🚀 ~ file: Layout.tsx:28 ~ bottombanner', bottombanner);
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
 
@@ -226,10 +228,23 @@ const Layout = ({
           </div>
         </div>
         {/* LastNews Slider */}
-        <div className="px-3 container mx-auto">
+        <div className="px-3 container mx-auto ">
           <LastNewsTextComp lastposts={lastposts} />
         </div>
         <main className="max-w-screen-xl mx-auto ">{children}</main>
+        {/* Bottom Banner */}
+        <div className="container mx-auto w-full">
+          <Link href={bottombanner.custompage_externallink.externalLink}>
+            <div className="relative w-full  h-auto px-3 py-6">
+              <Image
+                src={bottombanner.featuredImage.sourceUrl}
+                alt={bottombanner.featuredImage.altText}
+                width={1296}
+                height={160}
+              />
+            </div>
+          </Link>
+        </div>
         <footer
           style={{
             background: 'url(' + `${footerbg.featuredImage.sourceUrl} ` + ')',

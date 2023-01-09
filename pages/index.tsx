@@ -28,6 +28,7 @@ const Home = ({ data, loading }: any) => {
         lastposts={DATA.LastPost}
         footerbg={DATA.FooterBG}
         about={DATA.AboutZ1News}
+        bottombanner={DATA.BottomBanner}
       >
         <div className="container mx-auto px-3 grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-8">hi</div>
