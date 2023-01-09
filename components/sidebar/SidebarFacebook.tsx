@@ -14,10 +14,10 @@ const SidebarFacebook = () => {
         nonce="bDROyEmc"
       ></link>
       <div
-        className="fb-page"
+        className="fb-page mx-auto"
         data-href="https://www.facebook.com/Z1newsnetwork/"
         data-tabs="timeline"
-        data-width="351"
+        data-width="360"
         data-height=""
         data-small-header="false"
         data-adapt-container-width="true"

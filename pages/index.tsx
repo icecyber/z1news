@@ -35,6 +35,9 @@ const Home = ({ data, loading }: any) => {
             <SidebarComp
               popularnews={DATA.LastPost}
               video={DATA.SidebarVideo}
+              sponsor={DATA.SPONSOR}
+              ads={DATA.SidebarAds}
+              lastnews={DATA.LastPost}
             />
           </div>
         </div>

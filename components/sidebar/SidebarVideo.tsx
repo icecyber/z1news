@@ -11,7 +11,7 @@ const SidebarVideo = ({ video }: any) => {
           <iframe
             key={vdo.id}
             width="100%"
-            height="100%"
+            height="360px"
             src={`https://www.youtube-nocookie.com/embed/${vdo.embed.ytVideoId}`}
             title="YouTube video player"
             frameBorder="0"
