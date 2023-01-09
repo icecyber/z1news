@@ -5,7 +5,7 @@ type Props = {};
 
 const SidebarFacebook = () => {
   return (
-    <div>
+    <div className="">
       <SidebarTitle title="ហ្វេសបុកផេក" />
       <div id="fb-root"></div>
       <link
