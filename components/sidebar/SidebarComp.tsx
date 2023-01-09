@@ -1,10 +1,12 @@
 import React from 'react';
-import SidebarTitle from './SidebarTitle';
+import SidebarFacebook from './SidebarFacebook';
+import SidebarPopular from './SidebarPopular';
 
-const SidebarComp = () => {
+const SidebarComp = ({ popularnews }: any) => {
   return (
     <div>
-      <SidebarTitle title="អត្ថបទពេញនិយម" />
+      <SidebarPopular popularnews={popularnews} />
+      <SidebarFacebook />
     </div>
   );
 };

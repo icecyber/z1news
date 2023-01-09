@@ -32,7 +32,7 @@ const Home = ({ data, loading }: any) => {
         <div className="container mx-auto px-3 grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-8">hi</div>
           <div className="lg:col-span-4">
-            <SidebarComp />
+            <SidebarComp popularnews={DATA.LastPost} />
           </div>
         </div>
       </Layout>
