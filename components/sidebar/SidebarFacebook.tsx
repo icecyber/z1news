@@ -17,8 +17,6 @@ const SidebarFacebook = () => {
         className="fb-page mx-auto"
         data-href="https://www.facebook.com/Z1newsnetwork/"
         data-tabs="timeline"
-        data-width="360"
-        data-height=""
         data-small-header="false"
         data-adapt-container-width="true"
         data-hide-cover="false"

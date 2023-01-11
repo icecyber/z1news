@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -24,7 +25,7 @@ const SidebarPopular = ({ popularnews }: any) => {
                   <h3 className="text-sm">{news.title}</h3>
                   <span className="text-xs text-[#6c757d]">
                     <i className="fa-solid fa-calendar-days mr-1"></i>
-                    06/January/2023
+                    {moment(news.date).format('DD/MMMM/yyyy hh:mm')}
                   </span>
                 </div>
               </li>

@@ -4,8 +4,6 @@ import React from 'react';
 import SidebarTitle from './SidebarTitle';
 
 const SidebarAds = ({ ads }: any) => {
-  console.log('🚀 ~ file: SidebarAds.tsx:5 ~ SidebarAds ~ ads', ads);
-
   return (
     <div>
       <SidebarTitle title="ពានិជ្ជកម្ម" />

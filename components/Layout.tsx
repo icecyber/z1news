@@ -2,15 +2,17 @@ import Script from 'next/script';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { Langauge } from '../Types/Layout';
+import React, { useState } from 'react';
+import { Langauge, Layout } from '../Types/Layout';
 import LogoAds from './home/LogoAds';
 import LastNewsTextComp from './home/LastNewsTextComp';
 import FooterLastNewsComp from './footer/FooterLastNewsComp';
-import { url } from 'inspector';
 import FooterAboutComp from './footer/FooterAboutComp';
 import FooterSocialMedia from './footer/FooterSocialMedia';
 import FooterContact from './footer/FooterContact';
+import { useRouter } from 'next/router';
+import LastNewAdsSwiper from './home/LastNewAdsSwiper';
+import HomeLastNewComp from './home/HomeLastNewComp';
 
 const Layout = ({
   flag,
@@ -24,11 +26,12 @@ const Layout = ({
   footerbg,
   about,
   bottombanner,
-}: any) => {
-  console.log('🚀 ~ file: Layout.tsx:28 ~ bottombanner', bottombanner);
+  lastnewbanner,
+}: Layout) => {
+  const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
-
+  const Route = router.pathname;
   return (
     <>
       <Head>
@@ -53,12 +56,12 @@ const Layout = ({
       <div>
         {/* TopNav */}
         <div className="bg-hightlightColor overflow-x-auto">
-          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between">
+          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3">
             {/* Langauge */}
             <div className="flex items-center border-gray-700 border-l">
               <div className="dropdown">
                 {/* Flag Button */}
-                {flag.children.slice(0, 1).map((lang: Langauge) => (
+                {flag.children.slice(0, 1).map((lang: any) => (
                   <button
                     key={lang.id}
                     className=" flex items-center gap-1 text-sm px-[15px]"
@@ -136,19 +139,22 @@ const Layout = ({
             {/* Contact Info */}
             <div className="contact-info flex items-center text-sm whitespace-nowrap">
               <ul className="flex">
-                {contactinfo.children.slice(1).map((contact: any) => (
-                  <li
-                    key={contact.id}
-                    className="border-gray-700 border-l h-10 flex items-center px-[15px] hover:text-white"
-                  >
-                    <Link href={contact.template.custom_icon.text}>
-                      <i
-                        className={`${contact.template.custom_icon.icon} mr-2`}
-                      ></i>
-                      {contact.title}
-                    </Link>
-                  </li>
-                ))}
+                {contactinfo.children
+                  .slice(1)
+                  .reverse()
+                  .map((contact: any) => (
+                    <li
+                      key={contact.id}
+                      className="border-gray-700 border-l h-10 flex items-center px-[15px] hover:text-white"
+                    >
+                      <Link href={contact.template.custom_icon.text}>
+                        <i
+                          className={`${contact.template.custom_icon.icon} mr-2`}
+                        ></i>
+                        {contact.title}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>
@@ -160,7 +166,7 @@ const Layout = ({
               src={logo.featuredImage.sourceUrl}
               alt={logo.featuredImage.altText}
               fill
-              className="object-contain"
+              className="object-contain px-3"
               sizes="(max-width: 416px)"
               priority
             ></Image>
@@ -171,10 +177,10 @@ const Layout = ({
           </div>
         </div>
         {/* Menu */}
-        <div className="bg-primaryColor">
-          <div className="bg-primaryColor flex justify-between items-center px-4 relative container mx-auto w-full">
+        <div className="bg-primaryColor ">
+          <div className="bg-primaryColor flex justify-between items-center px-3 relative container mx-auto w-full">
             {/* Menu Mobile */}
-            <div className="flex items-center lg:hidden">
+            <div className="flex items-center lg:hidden px-3">
               <button
                 className="bg-secondaryColor"
                 onClick={() => setIsMenu(!isMenu)}
@@ -190,11 +196,24 @@ const Layout = ({
               </h1>
             </div>
             {/* Big Menu */}
-            <div className="hidden lg:block ">
-              <ul className="flex ">
-                {menu.map((item: any) => (
+            <div className="hidden lg:block px-3">
+              <ul className="flex">
+                <li
+                  className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor ${
+                    Route === '/' ? 'bg-secondaryColor' : ''
+                  }`}
+                  onClick={() => router.push('/')}
+                >
+                  អចលនទ្រព្យ
+                </li>
+
+                {menu.slice(1).map((item: any) => (
                   <Link href={item.uri} key={item.id}>
-                    <li className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer">
+                    <li
+                      className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor ${
+                        Route === item.uri ? 'bg-secondaryColor' : ''
+                      }`}
+                    >
                       {item.label}
                     </li>
                   </Link>
@@ -231,11 +250,23 @@ const Layout = ({
         <div className="px-3 container mx-auto ">
           <LastNewsTextComp lastposts={lastposts} />
         </div>
-        <main className="max-w-screen-xl mx-auto ">{children}</main>
+        {/* Home Lastnew */}
+        {router.asPath === '/' && (
+          <>
+            <div className="container mx-auto px-3 w-full h-14 sm:h-20 md:h-28 lg:h-40 my-3">
+              <LastNewAdsSwiper lastnewads={lastnewbanner} />
+            </div>
+            <div className="container mx-auto px-3 ">
+              <HomeLastNewComp lastnews={lastposts} />
+            </div>
+          </>
+        )}
+        {/* Main Children */}
+        <main className="max-w-screen-xl mx-auto">{children}</main>
         {/* Bottom Banner */}
         <div className="container mx-auto w-full">
           <Link href={bottombanner.custompage_externallink.externalLink}>
-            <div className="relative w-full  h-auto px-3 py-6">
+            <div className="relative w-full h-auto px-3 py-6">
               <Image
                 src={bottombanner.featuredImage.sourceUrl}
                 alt={bottombanner.featuredImage.altText}

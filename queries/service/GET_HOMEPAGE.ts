@@ -20,6 +20,7 @@ import { TERMS_AND_CONDITIONS } from '../general_data/TERMS_AND_CONDITIONS';
 import { POLICY_PRIVACY } from '../general_data/POLICY_PRIVACY';
 import { KNOWLEDGE_CATEGORY_POST } from '../home/categorys/KNOWLEDGE_CATEGORY_POST';
 import { FOOTER_BACKGROUND } from '../general_data/FOOTER_BACKGROUND';
+import { LastNewBanner } from '../home/LastNewBanner';
 
 export const GET_HOMEPAGE = gql`
     query HomePage {
@@ -30,6 +31,7 @@ export const GET_HOMEPAGE = gql`
                 ${TOP_BANNER}
                 ${MENU}
                 ${LAST_POST}
+                ${LastNewBanner}
                 ${BOTTOM_BANNER}
                 ${SIDEBAR_VIDEO}
                 ${SPONSOR}

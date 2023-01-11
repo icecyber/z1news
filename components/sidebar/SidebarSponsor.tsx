@@ -6,10 +6,6 @@ import SidebarTitle from './SidebarTitle';
 type Props = {};
 
 const SidebarSponsor = ({ sponsor }: any) => {
-  console.log(
-    '🚀 ~ file: SidebarSponsor.tsx:7 ~ SidebarSponsor ~ sponsor',
-    sponsor
-  );
   return (
     <div>
       <SidebarTitle title="អ្នកឧបត្ថម្ភ" />

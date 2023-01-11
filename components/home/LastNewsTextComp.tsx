@@ -18,7 +18,7 @@ const LastNewsTextComp = ({ lastposts }: any) => {
   };
 
   return (
-    <>
+    <div className="px-3">
       {/* Label and Navigation */}
       <div className="grid grid-cols-12 gap-4 ">
         {/* Label */}
@@ -80,7 +80,7 @@ const LastNewsTextComp = ({ lastposts }: any) => {
           ></i>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

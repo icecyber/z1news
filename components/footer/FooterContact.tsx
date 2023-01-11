@@ -3,10 +3,6 @@ import React from 'react';
 import FooterHeading from './FooterHeading';
 
 const FooterContact = ({ contactinfo }: any) => {
-  console.log(
-    '🚀 ~ file: FooterContact.tsx:4 ~ FooterContact ~ contactinfo',
-    contactinfo
-  );
   return (
     <div>
       <FooterHeading title="ទំនាក់ទំនង" />

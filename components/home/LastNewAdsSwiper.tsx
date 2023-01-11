@@ -8,13 +8,13 @@ import Image from 'next/image';
 import { Autoplay } from 'swiper';
 import Link from 'next/link';
 
-const LogoAds = ({ banner }: any) => {
+const LastNewAdsSwiper = ({ lastnewads }: any) => {
   return (
-    <div className="w-full h-full px-3">
+    <div className="w-full h-full px-3 relative">
       <Swiper
         spaceBetween={30}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         centeredSlides={true}
@@ -25,8 +25,8 @@ const LogoAds = ({ banner }: any) => {
         className="mySwiper"
         modules={[Autoplay]}
       >
-        {banner.children.map((data: any) => (
-          <SwiperSlide key={data.id} className="w-full h-full relative">
+        {lastnewads.children.map((data: any) => (
+          <SwiperSlide key={data.id} className="w-full h-auto relative">
             {data.featuredImage?.sourceUrl && (
               <Link href={data.custompage_externallink.externalLink}>
                 <Image
@@ -46,4 +46,4 @@ const LogoAds = ({ banner }: any) => {
   );
 };
 
-export default LogoAds;
+export default LastNewAdsSwiper;

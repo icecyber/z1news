@@ -3,11 +3,6 @@ import React from 'react';
 import SidebarTitle from './SidebarTitle';
 
 const SidebarLastNews = ({ lastnews }: any) => {
-  console.log(
-    '🚀 ~ file: SidebarLastNews.tsx:5 ~ SidebarLastNews ~ lastnews',
-    lastnews
-  );
-
   return (
     <div className="mb-5">
       <SidebarTitle title="អត្ថបទថ្មីៗ" />
