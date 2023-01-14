@@ -40,7 +40,12 @@ const Home = ({ data, loading }: any) => {
           <div className="lg:col-span-8 py-3 px-3">
             {/* News Category Comp */}
             {/* Real Estate News Category Comp */}
-            <NewsCategoryComp banner={DATA.CategoryBanner} />
+            <NewsCategoryComp
+              banner={DATA.CategoryBanner}
+              categorylink={'realestate'}
+              title={'អចលនទ្រព្យ'}
+              news={DATA.RealEstateCategoryPost}
+            />
           </div>
           {/* Sidebar */}
           <div className="lg:col-span-4 px-3">

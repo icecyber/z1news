@@ -3,6 +3,7 @@ RealEstateCategoryPost: posts(where: {categoryName: "realestate"}, first: 5) {
   edges {
     node {
       id
+      databaseId
       title
       content
       date

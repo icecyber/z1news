@@ -1,5 +1,5 @@
 export const LAST_POST = `
-LastPost: posts(last: 5) {
+LastPost: posts(first: 5) {
   edges {
     node {
       id

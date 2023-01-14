@@ -10,6 +10,7 @@ module.exports = {
         primaryColor: '#282550',
         secondaryColor: '#4267B2',
         hightlightColor: '#212529',
+        textcolor: '#6C757D',
       },
       screens: {
         sm: '576px',

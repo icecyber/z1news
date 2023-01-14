@@ -58,3 +58,16 @@ a {
 .sidebar-title::after {
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
 }
+
+/* Home Page Category */
+.category-new-title::after {
+  content: '';
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  position: absolute;
+  background: #4267b2;
+  z-index: 10;
+  width: 22px;
+  height: 100%;
+  top: 0;
+  right: -22px;
+}

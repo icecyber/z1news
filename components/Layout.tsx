@@ -56,7 +56,7 @@ const Layout = ({
       <div>
         {/* TopNav */}
         <div className="bg-hightlightColor overflow-x-auto">
-          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3">
+          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3 sm:px-0">
             {/* Langauge */}
             <div className="flex items-center border-gray-700 border-l">
               <div className="dropdown">

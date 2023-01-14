@@ -4,10 +4,6 @@ import React from 'react';
 import { LastPost, Tags } from '../../Types/Layout';
 
 const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
-  console.log(
-    '🚀 ~ file: HomeLastNewComp.tsx:6 ~ HomeLastNewComp ~ lastnews',
-    lastnews[0].tags.name
-  );
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3 px-3">
       {lastnews.map((news: LastPost) => (
