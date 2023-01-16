@@ -26,17 +26,22 @@ const LastNewAdsSwiper = ({ lastnewads }: any) => {
         modules={[Autoplay]}
       >
         {lastnewads.children.map((data: any) => (
-          <SwiperSlide key={data.id} className="w-full h-auto relative">
+          <SwiperSlide key={data.id}>
             {data.featuredImage?.sourceUrl && (
-              <Link href={data.custompage_externallink.externalLink}>
-                <Image
-                  src={data.featuredImage.sourceUrl}
-                  alt={data.featuredImage.altText}
-                  fill
-                  sizes="(max-width: 856px)"
-                  className="object-contain"
-                  priority
-                />
+              <Link
+                href={data.custompage_externallink.externalLink}
+                className="w-full h-full relative"
+              >
+                <div className="w-full h-full relative">
+                  <Image
+                    src={data.featuredImage.sourceUrl}
+                    alt={data.featuredImage.altText}
+                    fill
+                    sizes="(max-width: 856px)"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </Link>
             )}
           </SwiperSlide>

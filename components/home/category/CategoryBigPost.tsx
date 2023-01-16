@@ -2,8 +2,9 @@ import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { News } from '../../../Types/CategoryNews';
 
-const CategoryBigPost = ({ news }: any) => {
+const CategoryBigPost = ({ news }: News) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
       {/* First Big Post */}
@@ -11,9 +12,11 @@ const CategoryBigPost = ({ news }: any) => {
         <Link href={`/article/${news[0].databaseId}`} className="relative">
           <div className="w-full h-[185px] md:h-48 lg:h-[300px] relative">
             <Image
-              alt="hi"
+              alt={news[0].featuredImage.altText}
               src={news[0].featuredImage.sourceUrl}
               fill
+              sizes="100vw"
+              priority
               className="object-cover"
             ></Image>
           </div>
@@ -51,9 +54,11 @@ const CategoryBigPost = ({ news }: any) => {
           <Link href={`/article/${item.databaseId}`} className="relative">
             <div className="h-36 sm:h-[185px] md:h-48 lg:h-[120px] relative">
               <Image
-                alt="hi"
+                alt={item.featuredImage.altText}
                 src={item.featuredImage.sourceUrl}
                 fill
+                sizes="100vw"
+                priority
                 className="object-cover"
               ></Image>
             </div>

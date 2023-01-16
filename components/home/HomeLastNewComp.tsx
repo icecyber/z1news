@@ -12,7 +12,7 @@ const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
           href={`/article/${news.databaseId}`}
           className="md:first:col-span-2 lg:first:row-span-2 relative h-[170px] md:h-[131px] lg:h-[145px] 2xl:h-[170px] md:first:h-[350px] lg:first:h-auto lg:first:col-span-6 lg:col-span-3 "
         >
-          <div>
+          <div className="relative h-full w-full">
             <div className="z-10 absolute  text-white ">
               <div className="flex gap-1">
                 {news.tags.slice(0, 2).map((tag: Tags) => (
@@ -22,10 +22,13 @@ const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
                 ))}
               </div>
             </div>
+
             <Image
               alt={news.featuredImage.altText}
               src={news.featuredImage.sourceUrl}
               fill
+              priority
+              sizes="100vw"
               className="object-cover"
             />
           </div>

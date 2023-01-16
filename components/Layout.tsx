@@ -33,8 +33,6 @@ const Layout = ({
   const [isSearch, setIsSearch] = useState(false);
   const Route = router.pathname;
 
-  console.log(Route);
-
   return (
     <>
       <Head>
@@ -275,6 +273,7 @@ const Layout = ({
                 alt={bottombanner.featuredImage.altText}
                 width={1296}
                 height={160}
+                priority
               />
             </div>
           </Link>

@@ -5,7 +5,7 @@ import FooterHeading from './FooterHeading';
 
 const FooterLastNewsComp = ({ lastnews, about }: any) => {
   return (
-    <div className="">
+    <div>
       {/* LastNews */}
       <div>
         <FooterHeading title="អត្ថបទថ្មីៗ" />
@@ -21,6 +21,8 @@ const FooterLastNewsComp = ({ lastnews, about }: any) => {
                   alt={news.featuredImage.altText}
                   src={news.featuredImage.sourceUrl}
                   fill
+                  priority
+                  sizes="100vw"
                   className="mr-[10px] object-cover"
                 ></Image>
               </div>

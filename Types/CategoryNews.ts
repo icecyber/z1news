@@ -24,6 +24,8 @@ export interface CategoryLink {
 }
 
 export interface News {
+  [x: string]: any;
+  databaseId?: any;
   content: string;
   date: string;
   featuredImage: {
