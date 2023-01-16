@@ -6,7 +6,7 @@ import NewsCategoryTitle from './NewsCategoryTitle';
 const NewsCategoryComp = ({ banner, title, categorylink, news }: any) => {
   return (
     <div>
-      <CategoryBanner banner={banner.children} />
+      <CategoryBanner banner={banner} />
       <NewsCategoryTitle title={title} categorylink={categorylink} />
       <CategoryBigPost news={news} />
     </div>

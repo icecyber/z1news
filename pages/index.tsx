@@ -1,12 +1,15 @@
 import { useQuery } from '@apollo/client';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import NewsCategoryComp from '../components/home/category/NewsCategoryComp';
+const NewsCategoryComp = dynamic(
+  () => import('../components/home/category/NewsCategoryComp'),
+  { ssr: false }
+);
 import Layout from '../components/Layout';
 import SidebarComp from '../components/sidebar/SidebarComp';
 import client from '../lib/apollo';
 import { GET_SEARCH } from '../queries/general_data/GET_SEARCH';
-
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 
@@ -41,10 +44,38 @@ const Home = ({ data, loading }: any) => {
             {/* News Category Comp */}
             {/* Real Estate News Category Comp */}
             <NewsCategoryComp
-              banner={DATA.CategoryBanner}
+              banner={DATA.CategoryBanner.children[4]}
               categorylink={'realestate'}
               title={'អចលនទ្រព្យ'}
               news={DATA.RealEstateCategoryPost}
+            />
+            {/* Project News Category Comp */}
+            <NewsCategoryComp
+              banner={DATA.CategoryBanner.children[3]}
+              categorylink={'projects'}
+              title={'គំរោង'}
+              news={DATA.ProjectCategoryPost}
+            />
+            {/* Economic News Category Comp */}
+            <NewsCategoryComp
+              banner={DATA.CategoryBanner.children[2]}
+              categorylink={'economic'}
+              title={'សេដ្ឋកិច្ច'}
+              news={DATA.EconomicCategoryPost}
+            />
+            {/* Buy Sell News Category Comp */}
+            <NewsCategoryComp
+              banner={DATA.CategoryBanner.children[1]}
+              categorylink={'buysell'}
+              title={'ទិញលក់'}
+              news={DATA.BuySellCategoryPost}
+            />
+            {/* Knowledge News Category Comp */}
+            <NewsCategoryComp
+              banner={DATA.CategoryBanner.children[0]}
+              categorylink={'knowledge'}
+              title={'ចំណេះដឹងទូទៅ'}
+              news={DATA.KnowLedgeCategoryPost}
             />
           </div>
           {/* Sidebar */}

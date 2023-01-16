@@ -3,6 +3,7 @@ ProjectCategoryPost: posts(where: {categoryName: "projects"}, first: 5) {
     edges {
       node {
         id
+        databaseId
         title
         content
         date

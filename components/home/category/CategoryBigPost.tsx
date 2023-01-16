@@ -18,7 +18,6 @@ const CategoryBigPost = ({ news }: any) => {
               alt="hi"
               src={news[0].featuredImage.sourceUrl}
               fill
-              priority
               className="object-cover"
             ></Image>
           </div>
@@ -59,7 +58,6 @@ const CategoryBigPost = ({ news }: any) => {
                 alt="hi"
                 src={item.featuredImage.sourceUrl}
                 fill
-                priority
                 className="object-cover"
               ></Image>
             </div>
