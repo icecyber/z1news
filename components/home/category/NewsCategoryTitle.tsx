@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import { NewsCategoryTitle } from '../../../Types/CategoryNews';
 
 type Props = {};
 
-const NewsCategoryTitle = ({ title, categorylink }: any) => {
+const NewsCategoryTitle = ({ title, categorylink }: NewsCategoryTitle) => {
   return (
     <div className="my-5 bg-[#F8F9FA] relative  flex items-center">
       <div className="relative inline-block">

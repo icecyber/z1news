@@ -1,20 +1,20 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
+import { Banner } from '../../../Types/CategoryNews';
 
-const CategoryBanner = (banner: any) => {
-  console.log(
-    '🚀 ~ file: CategoryBanner.tsx:7 ~ CategoryBanner ~ banner',
-    banner
-  );
+const CategoryBanner = (banner: Banner) => {
   return (
-    <div className="relative h-full max-h-[105px] ">
-      <Image
-        alt={banner.banner.featuredImage?.altText}
-        src={banner.banner.featuredImage?.sourceUrl}
-        height={158}
-        width={1280}
-      />
-    </div>
+    <Link href={banner.banner.custompage_externallink.externalLink}>
+      <div className="relative h-full max-h-[105px] ">
+        <Image
+          alt={banner.banner.featuredImage?.altText}
+          src={banner.banner.featuredImage?.sourceUrl}
+          height={158}
+          width={1280}
+        />
+      </div>
+    </Link>
   );
 };
 

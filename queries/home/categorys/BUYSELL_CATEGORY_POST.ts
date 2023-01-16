@@ -3,6 +3,7 @@ BuySellCategoryPost: posts(where: {categoryName: "buysell"}, first: 5) {
     edges {
       node {
         id
+        databaseId
         title
         content
         date

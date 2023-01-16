@@ -32,6 +32,9 @@ const Layout = ({
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const Route = router.pathname;
+
+  console.log(Route);
+
   return (
     <>
       <Head>
@@ -279,8 +282,9 @@ const Layout = ({
         <footer
           style={{
             background: 'url(' + `${footerbg.featuredImage.sourceUrl} ` + ')',
-            backgroundBlendMode: 'color',
-            backgroundColor: 'rgb(47 43 90 / 90%)',
+            backgroundBlendMode: 'soft-light',
+            backgroundColor: 'rgba(39, 36, 79 , 1)',
+            backgroundAttachment: 'fixed',
           }}
         >
           <div className="container mx-auto px-3 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-3">

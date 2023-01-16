@@ -18,7 +18,6 @@ const Home = ({ data, loading }: any) => {
 
   const SearchDATA = useQuery(GET_SEARCH, { variables: { title: 'ខ' } });
   const cleanSearchData = cleanGraphQLResponse(SearchDATA.data);
-  console.log(DATA);
 
   if (loading) {
     return <p>loading...</p>;

@@ -3,6 +3,7 @@ EconomicCategoryPost: posts(where: {categoryName: "economic"}, first: 5) {
     edges {
       node {
         id
+        databaseId
         title
         content
         date

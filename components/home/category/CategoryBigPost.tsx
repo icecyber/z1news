@@ -4,10 +4,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const CategoryBigPost = ({ news }: any) => {
-  console.log(
-    '🚀 ~ file: CategoryBigPost.tsx:6 ~ CategoryBigPost ~ news',
-    news
-  );
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
       {/* First Big Post */}

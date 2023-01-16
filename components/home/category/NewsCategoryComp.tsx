@@ -1,9 +1,15 @@
 import React from 'react';
+import { NewsCategoryComp } from '../../../Types/CategoryNews';
 import CategoryBanner from './CategoryBanner';
 import CategoryBigPost from './CategoryBigPost';
 import NewsCategoryTitle from './NewsCategoryTitle';
 
-const NewsCategoryComp = ({ banner, title, categorylink, news }: any) => {
+const NewsCategoryComp = ({
+  banner,
+  title,
+  categorylink,
+  news,
+}: NewsCategoryComp) => {
   return (
     <div>
       <CategoryBanner banner={banner} />

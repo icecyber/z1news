@@ -4,6 +4,7 @@ KnowLedgeCategoryPost: posts(where: {categoryName: "knowledge"}, first: 5) {
       node {
         id
         title
+        databaseId
         content
         date
         tags {
