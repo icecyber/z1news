@@ -15,7 +15,9 @@ const CategoryBigPost = ({ news }: News) => {
               alt={news[0].featuredImage.altText}
               src={news[0].featuredImage.sourceUrl}
               fill
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               priority
               className="object-cover"
             ></Image>
@@ -57,7 +59,9 @@ const CategoryBigPost = ({ news }: News) => {
                 alt={item.featuredImage.altText}
                 src={item.featuredImage.sourceUrl}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 priority
                 className="object-cover"
               ></Image>

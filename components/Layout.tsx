@@ -73,7 +73,9 @@ const Layout = ({
                         src={lang.featuredImage.sourceUrl}
                         alt={lang.title}
                         fill
-                        sizes="(max-width: 20px)"
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       />
                     </div>
                     {lang.title}
@@ -93,7 +95,9 @@ const Layout = ({
                           src={lang.featuredImage.sourceUrl}
                           alt={lang.title}
                           fill
-                          sizes="(max-width: 20px)"
+                          sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         ></Image>
                       </div>
                       {lang.title}
@@ -168,7 +172,9 @@ const Layout = ({
               alt={logo.featuredImage.altText}
               fill
               className="object-contain px-3"
-              sizes="(max-width: 416px)"
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               priority
             ></Image>
           </div>

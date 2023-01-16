@@ -18,7 +18,9 @@ const SidebarPopular = ({ popularnews }: any) => {
                     src={news.featuredImage.sourceUrl}
                     alt={news.featuredImage.altText}
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                     priority
                     className="object-cover"
                   ></Image>

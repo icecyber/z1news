@@ -37,7 +37,9 @@ const LogoAds = ({ banner }: any) => {
                     src={data.featuredImage.sourceUrl}
                     alt={data.featuredImage.altText}
                     fill
-                    sizes="(max-width: 856px)"
+                    sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                     className="object-contain"
                     priority
                   />
