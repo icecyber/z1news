@@ -18,6 +18,11 @@ CategoryBanner: page(id: "category-banner", idType: URI) {
           custompage_externallink {
             customEmail
             externalLink
+            posterBanner {
+              id
+              altText
+              mediaItemUrl
+            }
           }
         }
       }

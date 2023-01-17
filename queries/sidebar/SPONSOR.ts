@@ -18,6 +18,11 @@ SPONSOR: page(id: "sponsor", idType: URI) {
             }
             custompage_externallink {
               externalLink
+              posterBanner {
+                id
+                altText
+                mediaItemUrl
+              }
             }
           }
         }

@@ -9,6 +9,10 @@ import { Autoplay } from 'swiper';
 import Link from 'next/link';
 
 const LogoAds = ({ banner }: any) => {
+  console.log(
+    banner.children[0].custompage_externallink.posterBanner.mediaItemUrl
+  );
+
   return (
     <div className="w-full h-full px-3">
       <Swiper
@@ -27,23 +31,18 @@ const LogoAds = ({ banner }: any) => {
       >
         {banner.children.map((data: any) => (
           <SwiperSlide key={data.id}>
-            {data.featuredImage?.sourceUrl && (
+            {data.custompage_externallink.posterBanner.mediaItemUrl && (
               <Link
                 href={data.custompage_externallink.externalLink}
                 className="w-full h-full relative"
               >
-                <div className="w-full h-full relative">
-                  <Image
-                    src={data.featuredImage.sourceUrl}
-                    alt={data.featuredImage.altText}
-                    fill
-                    sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                <video
+                  src={`${data.custompage_externallink.posterBanner.mediaItemUrl}`}
+                  autoPlay
+                  loop
+                  muted
+                  className="h-full w-auto"
+                />
               </Link>
             )}
           </SwiperSlide>

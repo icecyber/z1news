@@ -27,21 +27,18 @@ const LastNewAdsSwiper = ({ lastnewads }: any) => {
       >
         {lastnewads.children.map((data: any) => (
           <SwiperSlide key={data.id}>
-            {data.featuredImage?.sourceUrl && (
+            {data.custompage_externallink.posterBanner.mediaItemUrl && (
               <Link
                 href={data.custompage_externallink.externalLink}
                 className="w-full h-full relative"
               >
                 <div className="w-full h-full relative">
-                  <Image
-                    src={data.featuredImage.sourceUrl}
-                    alt={data.featuredImage.altText}
-                    fill
-                    sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                    className="object-contain"
-                    priority
+                  <video
+                    src={data.custompage_externallink.posterBanner.mediaItemUrl}
+                    className="object-contain h-full w-auto"
+                    autoPlay
+                    loop
+                    muted
                   />
                 </div>
               </Link>

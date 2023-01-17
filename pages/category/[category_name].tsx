@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import Image from 'next/image';
 import Layout from '../../components/Layout';
 import SidebarComp from '../../components/sidebar/SidebarComp';
 import client from '../../lib/apollo';
@@ -7,9 +8,13 @@ import { GET_HOMEPAGE } from '../../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../../utils/clean-graphql-response';
 
 const CategoryPages = ({ data }: any) => {
-  const CategoryData = JSON.stringify(cleanGraphQLResponse(data), null, 4);
+  const CategoryData = cleanGraphQLResponse(data);
   const HomePage = useQuery(GET_HOMEPAGE);
   const DATA = cleanGraphQLResponse(HomePage?.data);
+  console.log(
+    '🚀 ~ file: [category_name].tsx:11 ~ CategoryPages ~ CategoryData',
+    CategoryData
+  );
 
   if (!DATA) {
     return <h1>Loading..!</h1>;
@@ -31,7 +36,7 @@ const CategoryPages = ({ data }: any) => {
       >
         <div className="container mx-auto px-3 grid grid-cols-1 lg:grid-cols-12">
           {/* Main */}
-          <div className="lg:col-span-8 py-3 px-3">hi</div>
+          <div className="lg:col-span-8 py-3 px-3"></div>
           {/* Sidebar */}
           <div className="lg:col-span-4 px-3">
             <SidebarComp

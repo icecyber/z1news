@@ -26,6 +26,11 @@ TopBanner: page(id: "long-ads", idType: URI) {
               externalLink
               fieldGroupName
               icon
+              posterBanner {
+                id
+                altText
+                mediaItemUrl
+              }
             }
           }
         }
