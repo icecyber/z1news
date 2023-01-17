@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { DETAIL_BANNER } from '../general_data/DETAIL_BANNER';
 
 export const GET_DETAIL_PAGE = gql`
   query PostDetail($id: ID!) {
@@ -38,5 +39,6 @@ export const GET_DETAIL_PAGE = gql`
       }
       date
     }
+    ${DETAIL_BANNER}
   }
 `;

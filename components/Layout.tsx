@@ -167,16 +167,18 @@ const Layout = ({
         {/* Logo and Logo Ads */}
         <div className="grid grid-cols-12 container mx-auto px-3 py-4 gap-4 md:gap-10">
           <div className="col-span-4 min-w-[101px] h-7 sm:h-12 md:h-16 lg:h-28 xl:h- 2xl:h-[856px] relative ">
-            <Image
-              src={logo.featuredImage.sourceUrl}
-              alt={logo.featuredImage.altText}
-              fill
-              className="object-contain px-3"
-              sizes="(max-width: 768px) 100vw,
+            <Link href={'/'}>
+              <Image
+                src={logo.featuredImage.sourceUrl}
+                alt={logo.featuredImage.altText}
+                fill
+                className="object-contain px-3"
+                sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-              priority
-            ></Image>
+                priority
+              ></Image>
+            </Link>
           </div>
           {/* Ads Banner */}
           <div className="col-span-8 relative">

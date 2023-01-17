@@ -19,10 +19,7 @@ const CategoryPages = ({ data }: any) => {
   const CategoryData = cleanGraphQLResponse(data);
   const HomePage = useQuery(GET_HOMEPAGE);
   const DATA = cleanGraphQLResponse(HomePage?.data);
-  console.log(
-    '🚀 ~ file: [category_name].tsx:11 ~ CategoryPages ~ CategoryData',
-    CategoryData
-  );
+
   useEffect(() => {
     if (Route.category_name === 'projects') {
       setRouteTitle('គំរោងវិនិយោគ');
