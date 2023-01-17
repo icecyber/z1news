@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { CATEGORY_PAGE_TOP_BANNER } from '../home/categorys/CATEGORY_PAGE_TOP_BANNER';
 
 export const GET_CATEGORY_POSTS = gql`
   query ProjectPage($category: String) {
@@ -6,6 +7,7 @@ export const GET_CATEGORY_POSTS = gql`
       edges {
         node {
           id
+          databaseId
           title
           content
           date
@@ -35,5 +37,7 @@ export const GET_CATEGORY_POSTS = gql`
         }
       }
     }
+    ${CATEGORY_PAGE_TOP_BANNER}
   }
+  
 `;

@@ -10,7 +10,7 @@ const CategoryBigPost = ({ news }: News) => {
       {/* First Big Post */}
       <div className="bg-[#F8F9FA] md:col-span-2 xl:col-span-4 md:grid md:grid-cols-2">
         <Link href={`/article/${news[0].databaseId}`} className="relative">
-          <div className="w-full h-[185px] md:h-48 lg:h-[300px] relative">
+          <div className="w-full h-[185px] md:h-full relative">
             <Image
               alt={news[0].featuredImage.altText}
               src={news[0].featuredImage.sourceUrl}
