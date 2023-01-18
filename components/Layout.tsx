@@ -28,10 +28,12 @@ const Layout = ({
   bottombanner,
   lastnewbanner,
 }: Layout) => {
+  console.log('🚀 ~ file: Layout.tsx:31 ~ menu', menu);
   const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
-  const Route = router.pathname;
+  const Route = router.asPath;
+  console.log('🚀 ~ file: Layout.tsx:35 ~ Route', Route);
 
   return (
     <>
@@ -220,7 +222,7 @@ const Layout = ({
                   <Link href={item.uri} key={item.id}>
                     <li
                       className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor ${
-                        Route === item.uri ? 'bg-secondaryColor' : ''
+                        `${Route}/` === item.uri ? 'bg-secondaryColor' : ''
                       }`}
                     >
                       {item.label}
