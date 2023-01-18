@@ -28,12 +28,10 @@ const Layout = ({
   bottombanner,
   lastnewbanner,
 }: Layout) => {
-  console.log('🚀 ~ file: Layout.tsx:31 ~ menu', menu);
   const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const Route = router.asPath;
-  console.log('🚀 ~ file: Layout.tsx:35 ~ Route', Route);
 
   return (
     <>

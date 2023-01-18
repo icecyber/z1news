@@ -63,11 +63,6 @@ const PostDetail = ({ data }: any) => {
 
   const FilterResult = filterPost(releateState, detailCategoryID);
 
-  console.log(
-    '🚀 ~ file: [id].tsx:65 ~ PostDetail ~ FilterResult',
-    FilterResult
-  );
-
   if (!DATA) {
     return <div>Loading...</div>;
   } else {
@@ -217,7 +212,9 @@ const PostDetail = ({ data }: any) => {
                           alt={post.node.featuredImage.node.altText}
                           fill
                           priority
-                          sizes="100vw"
+                          sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                           className="object-cover"
                         />
                       </div>
