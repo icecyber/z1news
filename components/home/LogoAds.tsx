@@ -9,10 +9,6 @@ import { Autoplay } from 'swiper';
 import Link from 'next/link';
 
 const LogoAds = ({ banner }: any) => {
-  console.log(
-    banner.children[0].custompage_externallink.posterBanner.mediaItemUrl
-  );
-
   return (
     <div className="w-full h-full px-3">
       <Swiper
