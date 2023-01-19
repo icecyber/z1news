@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { GET_LAYOUT } from './GET_LAYOUT';
 
 export const GET_SEARCH = gql`
   query Search($title: String) {
@@ -25,5 +26,6 @@ export const GET_SEARCH = gql`
         }
       }
     }
+   ${GET_LAYOUT}
   }
 `;

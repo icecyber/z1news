@@ -30,8 +30,15 @@ const Layout = ({
 }: Layout) => {
   const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
-  const [isSearch, setIsSearch] = useState(false);
+  const [isSearch, setIsSearch] = useState(true);
   const Route = router.asPath;
+
+  const [searchString, setSearchString] = useState('');
+  // SearchSubmit
+  const searchHandle = (e: any) => {
+    e.preventDefault();
+    router.push(`/search/${searchString}`);
+  };
 
   return (
     <>
@@ -208,7 +215,7 @@ const Layout = ({
             <div className="hidden lg:block px-3">
               <ul className="flex">
                 <li
-                  className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor ${
+                  className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor border-l border-gray-700 ${
                     Route === '/' ? 'bg-secondaryColor' : ''
                   }`}
                   onClick={() => router.push('/')}
@@ -219,7 +226,7 @@ const Layout = ({
                 {menu.slice(1).map((item: any) => (
                   <Link href={item.uri} key={item.id}>
                     <li
-                      className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor ${
+                      className={`text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer bokor border-l border-gray-700 ${
                         `${Route}/` === item.uri ? 'bg-secondaryColor' : ''
                       }`}
                     >
@@ -229,7 +236,11 @@ const Layout = ({
                 ))}
               </ul>
             </div>
-            <button>
+            {/* Search Icon */}
+            <button
+              className="hover:bg-secondaryColor h-[50px] mr-3"
+              onClick={() => setIsSearch(!isSearch)}
+            >
               <i className="fa-solid fa-magnifying-glass text-white text-xl py-2 px-4"></i>
             </button>
             {/* Menu Items Darwer*/}
@@ -239,7 +250,7 @@ const Layout = ({
                   {menu.map((item: any) => (
                     <li
                       key={item.id}
-                      className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor cursor-pointer"
+                      className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor  cursor-pointer"
                     >
                       {item.label}
                     </li>
@@ -249,9 +260,24 @@ const Layout = ({
             ) : null}
             {/* Search Drawer */}
             {isSearch ? (
-              <div className="absolute right-0">
-                <input type="text" placeholder="ស្វែងរកពាក្យ..." />
-              </div>
+              <form
+                className="absolute -bottom-[54px] right-6 p-2 bg-white border rounded-md "
+                onSubmit={searchHandle}
+              >
+                <input
+                  type="text"
+                  placeholder="ស្វែងរកពាក្យ..."
+                  className="border focus:rounded-none  placeholder:pl-4 focus:outline-secondaryColor"
+                  id="search"
+                  onChange={(e) => setSearchString(e.target.value)}
+                />
+                <button
+                  className="text-white bg-secondaryColor px-3 py-[2px]  rounded-r-md"
+                  type="submit"
+                >
+                  ស្វែងរក
+                </button>
+              </form>
             ) : null}
           </div>
         </div>

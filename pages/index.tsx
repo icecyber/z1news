@@ -16,9 +16,6 @@ import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 const Home = ({ data, loading }: any) => {
   const DATA = cleanGraphQLResponse(data);
 
-  const SearchDATA = useQuery(GET_SEARCH, { variables: { title: 'ខ' } });
-  const cleanSearchData = cleanGraphQLResponse(SearchDATA.data);
-
   if (loading) {
     return <p>loading...</p>;
   } else if (DATA) {

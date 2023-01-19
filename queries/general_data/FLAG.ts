@@ -1,5 +1,4 @@
 export const FLAG = `
-
 Flag: page(id: "language", idType: URI) {
   id
   title
