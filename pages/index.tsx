@@ -1,7 +1,4 @@
-import { useQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import Link from 'next/link';
 const NewsCategoryComp = dynamic(
   () => import('../components/home/category/NewsCategoryComp'),
   { ssr: false }
@@ -9,7 +6,6 @@ const NewsCategoryComp = dynamic(
 import Layout from '../components/Layout';
 import SidebarComp from '../components/sidebar/SidebarComp';
 import client from '../lib/apollo';
-import { GET_SEARCH } from '../queries/general_data/GET_SEARCH';
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import CategoryPost_Comp from '../../components/category/CategoryPost_Comp';
 import TopBannerSlide from '../../components/category/TopBannerSlide';
 import NewsCategoryPageTitle from '../../components/home/category/NewsCategoryPageTitle';
-import NewsCategoryTitle from '../../components/home/category/NewsCategoryTitle';
 import Layout from '../../components/Layout';
 import SidebarComp from '../../components/sidebar/SidebarComp';
 import client from '../../lib/apollo';
@@ -31,11 +30,17 @@ const CategoryPages = ({ data }: any) => {
       setRouteTitle('សេដ្ថកិច្ច');
     } else if (Route.category_name === 'buysell') {
       setRouteTitle('ទិញលក់');
+    } else if (Route.category_name === 'realestate') {
+      setRouteTitle('អចលនទ្រព្យ');
     }
   }, []);
 
   if (!DATA) {
-    return <h1>Loading..!</h1>;
+    return (
+      <div id="spinner-container">
+        <div id="loading-spinner"></div>
+      </div>
+    );
   } else
     return (
       <Layout
