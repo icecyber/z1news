@@ -10,6 +10,8 @@ import { GET_SEARCH } from '../../queries/general_data/GET_SEARCH';
 import { cleanGraphQLResponse } from '../../utils/clean-graphql-response';
 
 const Search = ({ data }: any) => {
+  const DATASEARCH = data.posts.edges.length;
+
   const DATA = cleanGraphQLResponse(data);
   const Route = useRouter().query.search;
 
@@ -33,13 +35,13 @@ const Search = ({ data }: any) => {
         <div className="lg:col-span-8 py-3 px-3">
           <TopBannerSlide TopAds={DATA.TOPCategoryPageBanner} />
 
-          {DATA.posts ? (
-            <div className="py-5 text-2xl koulen">ស្វែងរក {Route} មិនឃើញទេ</div>
-          ) : (
-            <>
+          {DATASEARCH > 0 ? (
+            <div>
               <h1 className="py-5 text-2xl koulen">ស្វែងរក៖ {Route}</h1>
               <CategoryPost_Comp news={DATA.posts} />
-            </>
+            </div>
+          ) : (
+            <div className="py-5 text-2xl koulen">ស្វែងរក {Route} មិនឃើញទេ</div>
           )}
           <TopBannerSlide TopAds={DATA.TOPCategoryPageBanner} />
         </div>
@@ -61,6 +63,8 @@ const Search = ({ data }: any) => {
 export default Search;
 
 export async function getServerSideProps({ params }: any) {
+  console.log(params, 'param');
+
   const { data } = await client.query({
     query: GET_SEARCH,
     variables: {
