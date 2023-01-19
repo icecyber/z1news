@@ -75,3 +75,30 @@ a {
   top: 0;
   right: -22px;
 }
+
+/* Effect */
+
+.custom_hover_effect img {
+  transition: all 0.3s ease;
+}
+
+.custom_hover_effect img:hover {
+  transform: scale(1.1);
+}
+
+.custom_hover_effect:hover h1 {
+  bottom: 0 !important;
+  transition: all 0.3s ease;
+}
+
+.custom_title_lastnew {
+  background-color: rgba(38, 36, 79, 0.7);
+}
+
+.post-hover-effect img {
+  transition: all 0.3s ease;
+}
+
+.post-hover-effect img:hover {
+  transform: scale(1.1);
+}

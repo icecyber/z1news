@@ -78,6 +78,7 @@ export interface Menu {
 export interface LastPost {
   [x: string]: any;
   id: string;
+  title: string;
   databaseId: number;
   date: string;
   featuredImage: {

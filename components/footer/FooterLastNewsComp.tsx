@@ -16,7 +16,7 @@ const FooterLastNewsComp = ({ lastnews, about }: any) => {
               key={news.id}
               className="grid grid-cols-12 mb-[10px] gap-2 border-b border-b-[#555] last:border-none pb-3"
             >
-              <div className="col-span-3 relative w-full h-[60px]">
+              <div className="col-span-3 relative w-full h-[60px] post-hover-effect overflow-clip">
                 <Image
                   alt={news.featuredImage.altText}
                   src={news.featuredImage.sourceUrl}

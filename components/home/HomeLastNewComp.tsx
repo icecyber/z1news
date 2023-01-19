@@ -12,7 +12,7 @@ const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
           href={`/article/${news.databaseId}`}
           className="md:first:col-span-2 lg:first:row-span-2 relative h-[170px] md:h-[131px] lg:h-[145px] 2xl:h-[170px] md:first:h-[350px] lg:first:h-auto lg:first:col-span-6 lg:col-span-3 "
         >
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full overflow-hidden custom_hover_effect">
             <div className="z-10 absolute  text-white ">
               <div className="flex gap-1">
                 {news.tags.slice(0, 2).map((tag: Tags) => (
@@ -33,6 +33,9 @@ const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
               33vw"
               className="object-cover"
             />
+            <h1 className="absolute custom_title_lastnew w-full -bottom-24 hover:bottom-0 p-[10px] custom_title_effect">
+              <span className="text-white text-sm">{news.title}</span>
+            </h1>
           </div>
         </Link>
       ))}

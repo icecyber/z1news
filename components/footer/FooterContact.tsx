@@ -4,7 +4,7 @@ import FooterHeading from './FooterHeading';
 
 const FooterContact = ({ contactinfo }: any) => {
   return (
-    <div>
+    <div className="xl:order-first">
       <FooterHeading title="ទំនាក់ទំនង" />
       <div className="">
         <h1 className="text-lg font-bold text-[#d4d4d4]">អាសយដ្ឋាន</h1>

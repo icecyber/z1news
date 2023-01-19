@@ -13,7 +13,7 @@ const SidebarPopular = ({ popularnews }: any) => {
           {popularnews.map((news: any) => (
             <Link href={`/article/${news.databaseId}`} key={news.id}>
               <li className="grid grid-cols-12 gap-4 my-4">
-                <div className="relative col-span-5 ">
+                <div className="relative col-span-5 post-hover-effect overflow-clip">
                   <Image
                     src={news.featuredImage.sourceUrl}
                     alt={news.featuredImage.altText}

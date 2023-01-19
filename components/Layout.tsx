@@ -30,7 +30,7 @@ const Layout = ({
 }: Layout) => {
   const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
-  const [isSearch, setIsSearch] = useState(true);
+  const [isSearch, setIsSearch] = useState(false);
   const Route = router.asPath;
 
   const [searchString, setSearchString] = useState('');
@@ -315,8 +315,8 @@ const Layout = ({
         <footer
           style={{
             background: 'url(' + `${footerbg.featuredImage.sourceUrl} ` + ')',
-            backgroundBlendMode: 'soft-light',
-            backgroundColor: 'rgba(39, 36, 79 , 1)',
+            backgroundBlendMode: 'multiply',
+            backgroundColor: 'rgba(39, 36, 90 ,1)',
             backgroundAttachment: 'fixed',
           }}
         >

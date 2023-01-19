@@ -10,7 +10,7 @@ const CategoryBigPost = ({ news }: News) => {
       {/* First Big Post */}
       <div className="bg-[#F8F9FA] md:col-span-2 xl:col-span-4 md:grid md:grid-cols-2">
         <Link href={`/article/${news[0].databaseId}`} className="relative">
-          <div className="w-full h-[185px] md:h-full relative">
+          <div className="w-full h-[185px] md:h-full relative post-hover-effect overflow-clip">
             <Image
               alt={news[0].featuredImage.altText}
               src={news[0].featuredImage.sourceUrl}
@@ -19,7 +19,7 @@ const CategoryBigPost = ({ news }: News) => {
               (max-width: 1200px) 50vw,
               33vw"
               priority
-              className="object-cover"
+              className="object-cover "
             ></Image>
           </div>
         </Link>
@@ -54,7 +54,7 @@ const CategoryBigPost = ({ news }: News) => {
       {news.slice(1).map((item: any) => (
         <div key={item.id}>
           <Link href={`/article/${item.databaseId}`} className="relative">
-            <div className="h-36 sm:h-[185px] md:h-48 lg:h-[120px] relative">
+            <div className="h-36 sm:h-[185px] md:h-48 lg:h-[120px] relative post-hover-effect overflow-clip">
               <Image
                 alt={item.featuredImage.altText}
                 src={item.featuredImage.sourceUrl}
