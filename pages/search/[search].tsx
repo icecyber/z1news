@@ -63,8 +63,6 @@ const Search = ({ data }: any) => {
 export default Search;
 
 export async function getServerSideProps({ params }: any) {
-  console.log(params, 'param');
-
   const { data } = await client.query({
     query: GET_SEARCH,
     variables: {

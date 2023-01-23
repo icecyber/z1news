@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CategoryPost_Comp from '../../components/category/CategoryPost_Comp';
+import PaginationComp from '../../components/category/PaginationComp';
 import TopBannerSlide from '../../components/category/TopBannerSlide';
 import NewsCategoryPageTitle from '../../components/home/category/NewsCategoryPageTitle';
 import Layout from '../../components/Layout';
@@ -15,8 +16,25 @@ import { cleanGraphQLResponse } from '../../utils/clean-graphql-response';
 const CategoryPages = ({ data }: any) => {
   const Route = useRouter().query;
   const [routeTitle, setRouteTitle] = useState('');
+  const [postOffset, setPostOffset] = useState(0);
+
+  const getPostByPagination = useQuery(GET_CATEGORY_POSTS, {
+    variables: { category: Route.category_name, offset: postOffset },
+  });
+  console.log(
+    '🚀 ~ file: [category_name].tsx:29 ~ CategoryPages ~ getPostByPagination',
+    getPostByPagination.data
+  );
+  const CleanGetPostByPagination = cleanGraphQLResponse(
+    getPostByPagination.data
+  );
   const CategoryData = cleanGraphQLResponse(data);
+  let TotalPost = data.CategoryPosts.PageInfo.offsetPagination.total;
+  const postPerPage = 10;
+  const paginationPage = Math.round(TotalPost / postPerPage);
+
   const HomePage = useQuery(GET_HOMEPAGE);
+
   const DATA = cleanGraphQLResponse(HomePage?.data);
 
   useEffect(() => {
@@ -33,7 +51,16 @@ const CategoryPages = ({ data }: any) => {
     } else if (Route.category_name === 'realestate') {
       setRouteTitle('អចលនទ្រព្យ');
     }
-  }, []);
+  }, [Route.category_name]);
+
+  const PageBasePagination = (i: any, x: any) => {
+    const page = i + 1;
+    if (page === 1) {
+      setPostOffset(0);
+    } else {
+      setPostOffset(i * 10);
+    }
+  };
 
   if (!DATA) {
     return (
@@ -63,10 +90,59 @@ const CategoryPages = ({ data }: any) => {
             <TopBannerSlide TopAds={CategoryData.TOPCategoryPageBanner} />
             <NewsCategoryPageTitle
               title={routeTitle}
-              categorylink={CategoryData.CategoryPosts.length}
+              categorylink={TotalPost}
             />
-            <CategoryPost_Comp news={CategoryData.CategoryPosts} />
+            {CleanGetPostByPagination ? (
+              <CategoryPost_Comp
+                news={CleanGetPostByPagination.CategoryPosts}
+              />
+            ) : (
+              <div id="spinner-container">
+                <div id="loading-spinner"></div>
+              </div>
+            )}
+
             <TopBannerSlide TopAds={CategoryData.TOPCategoryPageBanner} />
+            {/* Pagination */}
+            <div className="my-8 flex justify-center">
+              <ul className="inline-flex -space-x-px">
+                {/* Previoes  */}
+                {postOffset >= 10 && (
+                  <li>
+                    <button
+                      onClick={() => setPostOffset(postOffset - 10)}
+                      className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                      Previous
+                    </button>
+                  </li>
+                )}
+                {Array.apply(0, Array(paginationPage)).map(function (x, i) {
+                  return (
+                    <li key={i}>
+                      <button
+                        onClick={() => PageBasePagination(i, x)}
+                        className="px-3 py-2 leading-tight text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                      >
+                        {i + 1}
+                      </button>
+                    </li>
+                  );
+                })}
+                {/* Next */}
+                <li>
+                  <button
+                    onClick={() => setPostOffset(10 + postOffset)}
+                    className={` ${
+                      postOffset + 10 > TotalPost &&
+                      'cursor-not-allowed pointer-events-none'
+                    } px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white `}
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
           {/* Sidebar */}
           <div className="lg:col-span-4 px-3">
@@ -104,6 +180,7 @@ export async function getStaticProps({ params }: any) {
     query: GET_CATEGORY_POSTS,
     variables: {
       category: params.category_name,
+      offset: null,
     },
   });
 
