@@ -13,7 +13,7 @@ import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 
 const Page = ({ data, loading }: any) => {
   const DATA = cleanGraphQLResponse(data);
-  console.log(DATA);
+
   const Route = useRouter().query.page;
   if (loading) {
     return <p>loading...</p>;
@@ -93,8 +93,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  console.log(params);
-
   const { data, loading } = await client.query({
     query: GET_HOMEPAGE,
   });

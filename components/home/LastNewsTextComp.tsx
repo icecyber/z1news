@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import moment from 'moment';
 import Link from 'next/link';
@@ -16,6 +16,13 @@ const LastNewsTextComp = ({ lastposts }: any) => {
     const newIndex = isLastSlide ? 0 : currenIndex + 1;
     setCurrentIndex(newIndex);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const isFirstSlide = currenIndex === 0;
+      setCurrentIndex(isFirstSlide ? lastposts.length - 1 : currenIndex - 1);
+    }, 5000);
+  }, [currenIndex]);
 
   return (
     <div className="px-3">
