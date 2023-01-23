@@ -35,7 +35,7 @@ const LastNewAdsSwiper = ({ lastnewads }: any) => {
                 <div className="w-full h-full relative">
                   <video
                     src={data.custompage_externallink.posterBanner.mediaItemUrl}
-                    className="object-contain h-full w-auto"
+                    className="object-contain h-full w-[1400px]"
                     autoPlay
                     loop
                     muted

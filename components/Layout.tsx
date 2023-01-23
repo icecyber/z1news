@@ -64,7 +64,7 @@ const Layout = ({
       <div>
         {/* TopNav */}
         <div className="bg-hightlightColor overflow-x-auto">
-          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3 sm:px-0">
+          <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3 ">
             {/* Langauge */}
             <div className="flex items-center border-gray-700 border-l">
               <div className="dropdown">
@@ -193,12 +193,12 @@ const Layout = ({
           </div>
         </div>
         {/* Menu */}
-        <div className="bg-primaryColor ">
+        <div className="bg-primaryColor md:px-3">
           <div className="bg-primaryColor flex justify-between items-center px-3 relative container mx-auto w-full">
             {/* Menu Mobile */}
-            <div className="flex items-center lg:hidden px-3">
+            <div className="flex items-center lg:hidden">
               <button
-                className="bg-secondaryColor"
+                className="bg-secondaryColor h-[50px]"
                 onClick={() => setIsMenu(!isMenu)}
               >
                 {isMenu ? (
@@ -207,7 +207,7 @@ const Layout = ({
                   <i className="fa-solid fa-bars text-white py-2 px-4 text-xl"></i>
                 )}
               </button>
-              <h1 className="text-white text-xl font-medium  py-2 px-4">
+              <h1 className="text-white text-xl font-medium  py-2 px-4 h-full">
                 Z1 News
               </h1>
             </div>
@@ -238,7 +238,7 @@ const Layout = ({
             </div>
             {/* Search Icon */}
             <button
-              className="hover:bg-secondaryColor h-[50px] mr-3"
+              className="hover:bg-secondaryColor h-[50px] "
               onClick={() => setIsSearch(!isSearch)}
             >
               <i className="fa-solid fa-magnifying-glass text-white text-xl py-2 px-4"></i>
@@ -282,16 +282,16 @@ const Layout = ({
           </div>
         </div>
         {/* LastNews Slider */}
-        <div className="px-3 container mx-auto ">
+        <div className=" container mx-auto md:px-3">
           <LastNewsTextComp lastposts={lastposts} />
         </div>
         {/* Home Lastnew */}
         {router.asPath === '/' && (
           <>
-            <div className="container mx-auto px-3 w-full h-14 sm:h-20 md:h-28 lg:h-40 my-3">
+            <div className="container mx-auto md:px-3 w-full h-14 sm:h-20 md:h-28 lg:h-40 my-3">
               <LastNewAdsSwiper lastnewads={lastnewbanner} />
             </div>
-            <div className="container mx-auto px-3 ">
+            <div className="container mx-auto md:px-3 ">
               <HomeLastNewComp lastnews={lastposts} />
             </div>
           </>
@@ -333,9 +333,9 @@ const Layout = ({
               <p>រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ Z1 News ឆ្នាំ2023.</p>
             </div>
             <div className=" text-[#d4d4d4] text-center  flex gap-2 justify-center md:justify-end py-3 px-4 w-full">
-              <span>លក្ខខណ្ឌ</span>
+              <Link href={'/terms-conditions'}>លក្ខខណ្ឌ</Link>
               <span>|</span>
-              <span>គោលការណ៏ភាពឯកជន</span>
+              <Link href={'/privacy-policy'}>គោលការណ៏ភាពឯកជន</Link>
             </div>
           </div>
         </div>

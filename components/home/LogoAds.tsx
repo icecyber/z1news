@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const LogoAds = ({ banner }: any) => {
   return (
-    <div className="w-full h-full px-3">
+    <div className="w-full h-full ">
       <Swiper
         spaceBetween={30}
         autoplay={{

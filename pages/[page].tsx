@@ -1,4 +1,6 @@
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import TopBannerSlide from '../components/category/TopBannerSlide';
 const NewsCategoryComp = dynamic(
   () => import('../components/home/category/NewsCategoryComp'),
   { ssr: false }
@@ -9,9 +11,10 @@ import client from '../lib/apollo';
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
 
-const Home = ({ data, loading }: any) => {
+const Page = ({ data, loading }: any) => {
   const DATA = cleanGraphQLResponse(data);
-
+  console.log(DATA);
+  const Route = useRouter().query.page;
   if (loading) {
     return <p>loading...</p>;
   } else if (DATA) {
@@ -33,42 +36,33 @@ const Home = ({ data, loading }: any) => {
         <div className="container mx-auto px-3 grid grid-cols-1 lg:grid-cols-12">
           {/* Main */}
           <div className="lg:col-span-8 py-3 md:px-3">
-            {/* News Category Comp */}
-            {/* Real Estate News Category Comp */}
-            <NewsCategoryComp
-              banner={DATA.CategoryBanner.children[4]}
-              categorylink={'realestate'}
-              title={'អចលនទ្រព្យ'}
-              news={DATA.RealEstateCategoryPost}
-            />
-            {/* Project News Category Comp */}
-            <NewsCategoryComp
-              banner={DATA.CategoryBanner.children[3]}
-              categorylink={'projects'}
-              title={'គំរោង'}
-              news={DATA.ProjectCategoryPost}
-            />
-            {/* Economic News Category Comp */}
-            <NewsCategoryComp
-              banner={DATA.CategoryBanner.children[2]}
-              categorylink={'economic'}
-              title={'សេដ្ឋកិច្ច'}
-              news={DATA.EconomicCategoryPost}
-            />
-            {/* Buy Sell News Category Comp */}
-            <NewsCategoryComp
-              banner={DATA.CategoryBanner.children[1]}
-              categorylink={'buysell'}
-              title={'ទិញលក់'}
-              news={DATA.BuySellCategoryPost}
-            />
-            {/* Knowledge News Category Comp */}
-            <NewsCategoryComp
-              banner={DATA.CategoryBanner.children[0]}
-              categorylink={'knowledge'}
-              title={'ចំណេះដឹងទូទៅ'}
-              news={DATA.KnowLedgeCategoryPost}
-            />
+            <TopBannerSlide TopAds={DATA.DetailBanner} />
+            {Route === 'terms-conditions' && (
+              <>
+                <h1 className="uppercase text-2xl koulen pt-6">
+                  {DATA.TermsAndConditions.title}
+                </h1>
+                <hr className="my-4" />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DATA.TermsAndConditions.content,
+                  }}
+                />
+              </>
+            )}
+            {Route === 'privacy-policy' && (
+              <>
+                <h1 className="uppercase text-2xl koulen pt-6">
+                  {DATA.PolicyPrivacy.title}
+                </h1>
+                <hr className="my-4" />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DATA.PolicyPrivacy.content,
+                  }}
+                />
+              </>
+            )}
           </div>
           {/* Sidebar */}
           <div className="lg:col-span-4 md:px-3">
@@ -86,9 +80,21 @@ const Home = ({ data, loading }: any) => {
   }
 };
 
-export default Home;
+export default Page;
 
-export async function getServerSideProps() {
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { page: 'terms-conditions' } },
+      { params: { page: 'privacy-policy' } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: any) {
+  console.log(params);
+
   const { data, loading } = await client.query({
     query: GET_HOMEPAGE,
   });

@@ -21,6 +21,7 @@ import { POLICY_PRIVACY } from '../general_data/POLICY_PRIVACY';
 import { KNOWLEDGE_CATEGORY_POST } from '../home/categorys/KNOWLEDGE_CATEGORY_POST';
 import { FOOTER_BACKGROUND } from '../general_data/FOOTER_BACKGROUND';
 import { LastNewBanner } from '../home/LastNewBanner';
+import { DETAIL_BANNER } from '../general_data/DETAIL_BANNER';
 
 export const GET_HOMEPAGE = gql`
     query HomePage {
@@ -47,6 +48,7 @@ export const GET_HOMEPAGE = gql`
         ${ECONOMIC_CATEGORY_POST}
         ${BUYSELL_CATEGORY_POST}
         ${KNOWLEDGE_CATEGORY_POST}
-       
+       ${DETAIL_BANNER}
+        
     }
 `;
