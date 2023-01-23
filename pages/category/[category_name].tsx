@@ -17,6 +17,7 @@ const CategoryPages = ({ data }: any) => {
   const Route = useRouter().query;
   const [routeTitle, setRouteTitle] = useState('');
   const [postOffset, setPostOffset] = useState(0);
+  const [pageIndex, setPageIndex] = useState(1);
 
   const getPostByPagination = useQuery(GET_CATEGORY_POSTS, {
     variables: { category: Route.category_name, offset: postOffset },
@@ -55,6 +56,7 @@ const CategoryPages = ({ data }: any) => {
 
   const PageBasePagination = (i: any, x: any) => {
     const page = i + 1;
+    setPageIndex(i);
     if (page === 1) {
       setPostOffset(0);
     } else {
@@ -104,45 +106,55 @@ const CategoryPages = ({ data }: any) => {
 
             <TopBannerSlide TopAds={CategoryData.TOPCategoryPageBanner} />
             {/* Pagination */}
-            <div className="my-8 flex justify-center">
-              <ul className="inline-flex -space-x-px">
-                {/* Previoes  */}
-                {postOffset >= 10 && (
-                  <li>
-                    <button
-                      onClick={() => setPostOffset(postOffset - 10)}
-                      className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                    >
-                      Previous
-                    </button>
-                  </li>
-                )}
-                {Array.apply(0, Array(paginationPage)).map(function (x, i) {
-                  return (
-                    <li key={i}>
+            {TotalPost < 10 ? (
+              ''
+            ) : (
+              <div className="my-8 flex justify-center">
+                <ul className="inline-flex -space-x-px">
+                  {/* Previoes  */}
+                  {postOffset >= 10 && (
+                    <li>
                       <button
-                        onClick={() => PageBasePagination(i, x)}
-                        className="px-3 py-2 leading-tight text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                        onClick={() => setPostOffset(postOffset - 10)}
+                        className="px-3 py-2 ml-0 leading-tight  text-[#0d6efd] bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition delay-75"
                       >
-                        {i + 1}
+                        « Previous
                       </button>
                     </li>
-                  );
-                })}
-                {/* Next */}
-                <li>
-                  <button
-                    onClick={() => setPostOffset(10 + postOffset)}
-                    className={` ${
-                      postOffset + 10 > TotalPost &&
-                      'cursor-not-allowed pointer-events-none'
-                    } px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white `}
-                  >
-                    Next
-                  </button>
-                </li>
-              </ul>
-            </div>
+                  )}
+                  {Array.apply(0, Array(paginationPage)).map(function (x, i) {
+                    return (
+                      <li key={i}>
+                        <button
+                          onClick={() => PageBasePagination(i, x)}
+                          value={i + 1}
+                          className={` ${
+                            i == pageIndex
+                              ? 'bg-[#0d6efd] text-white'
+                              : 'text-[#0d6efd] hover:bg-blue-100 hover:text-blue-700 transition delay-75'
+                          }
+                           px-3 py-2 leading-tight  border border-gray-300   dark:border-gray-700 dark:bg-gray-700 dark:text-white transition delay-75`}
+                        >
+                          {i + 1}
+                        </button>
+                      </li>
+                    );
+                  })}
+                  {/* Next */}
+                  <li>
+                    <button
+                      onClick={() => setPostOffset(10 + postOffset)}
+                      className={` ${
+                        postOffset + 10 > TotalPost &&
+                        'cursor-not-allowed pointer-events-none'
+                      } px-3 py-2 leading-tight text-[#0d6efd] bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white `}
+                    >
+                      Next »
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
           {/* Sidebar */}
           <div className="lg:col-span-4 px-3">
