@@ -22,7 +22,7 @@ const LastNewsTextComp = ({ lastposts }: any) => {
       const isFirstSlide = currenIndex === 0;
       setCurrentIndex(isFirstSlide ? lastposts.length - 1 : currenIndex - 1);
     }, 5000);
-  }, [currenIndex]);
+  }, [currenIndex, lastposts.length]);
 
   return (
     <div className="px-3">

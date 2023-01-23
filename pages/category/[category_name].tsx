@@ -22,10 +22,7 @@ const CategoryPages = ({ data }: any) => {
   const getPostByPagination = useQuery(GET_CATEGORY_POSTS, {
     variables: { category: Route.category_name, offset: postOffset },
   });
-  console.log(
-    '🚀 ~ file: [category_name].tsx:29 ~ CategoryPages ~ getPostByPagination',
-    getPostByPagination.data
-  );
+
   const CleanGetPostByPagination = cleanGraphQLResponse(
     getPostByPagination.data
   );
