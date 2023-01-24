@@ -31,6 +31,7 @@ const Layout = ({
   const router = useRouter();
   const [isMenu, setIsMenu] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
+  const [isScroll, setIsScroll] = useState('hidden');
   const Route = router.asPath;
 
   const [searchString, setSearchString] = useState('');
@@ -39,6 +40,16 @@ const Layout = ({
     e.preventDefault();
     router.push(`/search/${searchString}`);
   };
+
+  window.addEventListener('scroll', (event) => {
+    let scroll = scrollY;
+    if (scroll > 1000) {
+      setIsScroll('flex');
+    }
+    if (scroll < 1000) {
+      setIsScroll('hidden');
+    }
+  });
 
   return (
     <>
@@ -61,7 +72,7 @@ const Layout = ({
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=895609560585154&autoLogAppEvents=1"
         nonce="CNATzMX5"
       />
-      <div>
+      <div className="relative">
         {/* TopNav */}
         <div className="bg-hightlightColor overflow-x-auto">
           <div className="w-full container mx-auto text-[#D4D2C9] flex justify-between px-3 ">
@@ -297,7 +308,26 @@ const Layout = ({
           </>
         )}
         {/* Main Children */}
-        <main className="max-w-screen-xl mx-auto">{children}</main>
+        <div
+          onClick={() => router.push(`${router.asPath}#`)}
+          className={`w-10 h-10 bg-secondaryColor ${isScroll} items-center justify-center rounded-md cursor-pointer fixed right-9 bottom-9 z-30 shadow opacity-animation`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6 text-white"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
+            />
+          </svg>
+        </div>
+        <main className="max-w-screen-xl mx-auto relative">{children}</main>
         {/* Bottom Banner */}
         <div className="container mx-auto w-full">
           <Link href={bottombanner.custompage_externallink.externalLink}>

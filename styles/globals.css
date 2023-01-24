@@ -18,6 +18,7 @@ body {
   font-family: 'Battambang';
   line-height: 2;
   word-wrap: break-word;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -122,4 +123,29 @@ a {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes opacity-animation {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.opacity-animation {
+  animation: opacity-animation 1s normal;
 }
