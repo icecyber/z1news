@@ -209,7 +209,7 @@ const Layout = ({
         <div className="bg-primaryColor md:px-3">
           <div className="bg-primaryColor flex justify-between items-center px-3 relative container mx-auto w-full">
             {/* Menu Mobile */}
-            <div className="flex items-center lg:hidden">
+            <div className="flex items-center lg:hidden ">
               <button
                 className="bg-secondaryColor h-[50px]"
                 onClick={() => setIsMenu(!isMenu)}
@@ -258,15 +258,14 @@ const Layout = ({
             </button>
             {/* Menu Items Darwer*/}
             {isMenu ? (
-              <div className="bg-primaryColor absolute bottom-[-250px] w-full left-0 animate__animated animate__bounce">
+              <div className="bg-primaryColor absolute bottom-[-250px] w-full left-0 animate__animated animate__bounce z-30">
                 <ul>
                   {menu.map((item: any) => (
-                    <li
-                      key={item.id}
-                      className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor  cursor-pointer"
-                    >
-                      {item.label}
-                    </li>
+                    <Link href={item.uri} key={item.id}>
+                      <li className="text-white text-base leading-[50px] px-5 hover:bg-secondaryColor  cursor-pointer">
+                        {item.label}
+                      </li>
+                    </Link>
                   ))}
                 </ul>
               </div>
