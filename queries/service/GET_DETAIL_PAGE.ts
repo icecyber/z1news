@@ -12,6 +12,8 @@ export const GET_DETAIL_PAGE = gql`
           node {
             id
             name
+            slug
+            uri
           }
         }
       }
@@ -21,6 +23,7 @@ export const GET_DETAIL_PAGE = gql`
             id
             name
             uri
+            slug
           }
         }
       }

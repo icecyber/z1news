@@ -64,7 +64,11 @@ const PostDetail = ({ data }: any) => {
   const FilterResult = filterPost(releateState, detailCategoryID);
 
   if (!DATA) {
-    return <div>Loading...</div>;
+    return (
+      <div id="spinner-container">
+        <div id="loading-spinner"></div>
+      </div>
+    );
   } else {
     return (
       <Layout
@@ -149,7 +153,7 @@ const PostDetail = ({ data }: any) => {
                 <div>
                   <span className=" font-bold text-base">អត្ថបទប្រភេទ៖</span>
                   {GetPostData.PostDetail.categories.map((cat: any) => (
-                    <Link key={cat.id} href={'/'}>
+                    <Link key={cat.id} href={`/category/${cat.slug}`}>
                       <span className="bg-secondaryColor text-white text-xs px-1 mx-1">
                         {cat.name}
                       </span>
@@ -184,7 +188,7 @@ const PostDetail = ({ data }: any) => {
                   <div className="text-xl bokor pb-2">ពាក្យទាក់ទង</div>
                   <div className="flex gap-1 flex-wrap">
                     {GetPostData.PostDetail.tags.map((tag: any) => (
-                      <Link key={tag.id} href={'/'}>
+                      <Link key={tag.id} href={`/tag/${tag.slug}`}>
                         <span className="bg-secondaryColor whitespace-pre text-white text-base px-2">
                           {tag.name}
                         </span>

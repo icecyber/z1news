@@ -15,9 +15,12 @@ const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {
           <div className="relative h-full w-full overflow-hidden custom_hover_effect">
             <div className="z-10 absolute  text-white ">
               <div className="flex gap-1">
-                {news.tags.slice(0, 2).map((tag: Tags) => (
-                  <span key={tag.id} className="bg-secondaryColor px-1 text-xs">
-                    {tag.name}
+                {news.categories.slice(0, 2).map((categories: Tags) => (
+                  <span
+                    key={categories.id}
+                    className="bg-secondaryColor px-2 py-1 text-xs"
+                  >
+                    {categories.name}
                   </span>
                 ))}
               </div>

@@ -16,6 +16,16 @@ KnowLedgeCategoryPost: posts(where: {categoryName: "knowledge"}, first: 5) {
             }
           }
         }
+        categories {
+          edges {
+            node {
+              id
+              name
+              uri
+              slug
+            }
+          }
+        }
         featuredImage {
           node {
             id

@@ -35,13 +35,14 @@ const CategoryBigPost = ({ news }: News) => {
               {moment(news[0].date).format('D/MM/YYYY')}
             </div>
             <div>
-              {news[0].tags.slice(0, 2).map((tag: any) => (
-                <span
-                  key={tag.id}
+              {news[0].categories.slice(0, 2).map((categories: any) => (
+                <Link
+                  href={`/category/${categories.slug}`}
+                  key={categories.id}
                   className="text-xs battambang bg-secondaryColor text-white px-2 mx-1"
                 >
-                  {tag.name}
-                </span>
+                  {categories.name}
+                </Link>
               ))}
             </div>
           </div>

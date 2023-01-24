@@ -16,6 +16,16 @@ RealEstateCategoryPost: posts(where: {categoryName: "realestate"}, first: 5) {
           }
         }
       }
+      categories {
+        edges {
+          node {
+            id
+            name
+            uri
+            slug
+          }
+        }
+      }
       featuredImage {
         node {
           id

@@ -16,6 +16,16 @@ BuySellCategoryPost: posts(where: {categoryName: "buysell"}, first: 5) {
             }
           }
         }
+        categories {
+          edges {
+            node {
+              id
+              name
+              uri
+              slug
+            }
+          }
+        }
         featuredImage {
           node {
             id

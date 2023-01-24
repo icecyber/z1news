@@ -57,14 +57,17 @@ const LastNewsTextComp = ({ lastposts }: any) => {
         {/* Post Tag */}
         <div className="flex gap-1 truncate md:col-span-9 items-center">
           <div className="">
-            {lastposts[currenIndex].tags.slice(0, 2).map((tags: any) => (
-              <span
-                key={tags.id}
-                className="text-[12px] bg-secondaryColor text-white whitespace-pre px-1 mx-1"
-              >
-                {tags.name}
-              </span>
-            ))}
+            {lastposts[currenIndex].categories
+              .slice(0, 2)
+              .map((categories: any) => (
+                <Link
+                  href={`/category/${categories.slug}`}
+                  key={categories.id}
+                  className="text-[12px] bg-secondaryColor text-white whitespace-pre px-1 mx-1"
+                >
+                  {categories.name}
+                </Link>
+              ))}
             <span className="bg-primaryColor text-white px-1 text-[12px] mx-1">
               {moment(lastposts[currenIndex].date).format('DD/MM/YYYY')}
             </span>
@@ -78,11 +81,11 @@ const LastNewsTextComp = ({ lastposts }: any) => {
         {/* Button MD */}
         <div className=" bg-secondaryColor hidden md:flex justify-center items-center md:col-span-3 lg:col-span-1  text-center text-white w-full max-w-[230px] ">
           <i
-            className="fa-solid fa-circle-chevron-left px-2"
+            className="fa-solid fa-circle-chevron-left px-2 cursor-pointer"
             onClick={prevClickHandler}
           ></i>
           <i
-            className="fa-solid fa-circle-chevron-right px-2"
+            className="fa-solid fa-circle-chevron-right px-2 cursor-pointer"
             onClick={nextClickHandler}
           ></i>
         </div>

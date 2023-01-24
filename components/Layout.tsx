@@ -41,15 +41,17 @@ const Layout = ({
     router.push(`/search/${searchString}`);
   };
 
-  window.addEventListener('scroll', (event) => {
-    let scroll = scrollY;
-    if (scroll > 1000) {
-      setIsScroll('flex');
-    }
-    if (scroll < 1000) {
-      setIsScroll('hidden');
-    }
-  });
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', (event) => {
+      let scroll = scrollY;
+      if (scroll > 1000) {
+        setIsScroll('flex');
+      }
+      if (scroll < 1000) {
+        setIsScroll('hidden');
+      }
+    });
+  }
 
   return (
     <>

@@ -143,4 +143,5 @@ export interface LastNewsBanner {
 export interface Tags {
   id: string;
   name: string;
+  slug?: string;
 }
