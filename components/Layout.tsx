@@ -56,13 +56,12 @@ const Layout = ({
   return (
     <>
       <Head>
-        <title>Z1 News</title>
+        <title>Z1 News - Beyond Real Estate News</title>
         <meta
           name="description"
           content="Z1 news is media website collect all real estate news in Cambodia."
         />
         <link rel="icon" href="/favicon.ico" />
-
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
       </Head>
       {/* Facebook Script */}
