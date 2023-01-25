@@ -36,7 +36,10 @@ const LogoAds = ({ banner }: any) => {
                   style={{ position: 'fixed' }}
                   src={`${data.custompage_externallink.posterBanner.mediaItemUrl}`}
                   autoPlay
+                  loop
                   muted
+                  playsInline
+                  preload="auto"
                   className="h-full w-auto"
                 />
               </Link>

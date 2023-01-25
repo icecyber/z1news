@@ -12,6 +12,8 @@ const CategoryBanner = (banner: Banner) => {
           autoPlay
           loop
           muted
+          playsInline
+          preload="auto"
         />
       </div>
     </Link>

@@ -39,6 +39,8 @@ const TopBannerSlide = ({ TopAds }: any) => {
                     autoPlay
                     loop
                     muted
+                    playsInline
+                    preload="auto"
                   />
                 </div>
               </Link>

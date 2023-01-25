@@ -39,6 +39,8 @@ const LastNewAdsSwiper = ({ lastnewads }: any) => {
                     autoPlay
                     loop
                     muted
+                    playsInline
+                    preload="auto"
                   />
                 </div>
               </Link>
