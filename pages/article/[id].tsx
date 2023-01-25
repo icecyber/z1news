@@ -189,7 +189,7 @@ const PostDetail = ({ data }: any) => {
                   <div className="flex gap-1 flex-wrap">
                     {GetPostData.PostDetail.tags.map((tag: any) => (
                       <Link key={tag.id} href={`/tag/${tag.slug}`}>
-                        <span className="bg-secondaryColor whitespace-pre text-white text-base px-2 whitespace-pre-wrap">
+                        <span className="bg-secondaryColor text-white text-base px-2 whitespace-pre-wrap">
                           {tag.name}
                         </span>
                       </Link>

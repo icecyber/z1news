@@ -33,9 +33,9 @@ const LogoAds = ({ banner }: any) => {
                 className="w-full h-full relative"
               >
                 <video
+                  style={{ position: 'fixed' }}
                   src={`${data.custompage_externallink.posterBanner.mediaItemUrl}`}
                   autoPlay
-                  loop
                   muted
                   className="h-full w-auto"
                 />
