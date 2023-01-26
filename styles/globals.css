@@ -149,3 +149,13 @@ a {
 .opacity-animation {
   animation: opacity-animation 1s normal;
 }
+
+footer {
+  background-image: linear-gradient(
+      rgba(39, 36, 79, 0.9),
+      rgba(39, 36, 79, 0.9)
+    ),
+    url('https://wp4.z1flexiblesolution.com/wp-content/uploads/2023/01/camera-man-image.jpg') !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}

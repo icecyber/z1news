@@ -342,14 +342,7 @@ const Layout = ({
             </div>
           </Link>
         </div>
-        <footer
-          style={{
-            background: 'url(' + `${footerbg.featuredImage.sourceUrl} ` + ')',
-            backgroundBlendMode: 'multiply',
-            backgroundColor: 'rgba(39, 36, 90 ,1)',
-            backgroundAttachment: 'fixed',
-          }}
-        >
+        <footer>
           <div className="container mx-auto px-3 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 lg:gap-3">
             <FooterLastNewsComp lastnews={lastposts} />
             <FooterAboutComp about={about} />
