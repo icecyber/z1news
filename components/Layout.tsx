@@ -1,18 +1,19 @@
+import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Langauge, Layout } from '../Types/Layout';
-import LogoAds from './home/LogoAds';
-import LastNewsTextComp from './home/LastNewsTextComp';
-import FooterLastNewsComp from './footer/FooterLastNewsComp';
-import FooterAboutComp from './footer/FooterAboutComp';
-import FooterSocialMedia from './footer/FooterSocialMedia';
-import FooterContact from './footer/FooterContact';
 import { useRouter } from 'next/router';
-import LastNewAdsSwiper from './home/LastNewAdsSwiper';
-import HomeLastNewComp from './home/HomeLastNewComp';
+const LogoAds = dynamic(() => import('./home/LogoAds'));
+const LastNewsTextComp = dynamic(() => import('./home/LastNewsTextComp'));
+const FooterLastNewsComp = dynamic(() => import('./footer/FooterLastNewsComp'));
+const FooterAboutComp = dynamic(() => import('./footer/FooterAboutComp'));
+const FooterSocialMedia = dynamic(() => import('./footer/FooterSocialMedia'));
+const FooterContact = dynamic(() => import('./footer/FooterContact'));
+const LastNewAdsSwiper = dynamic(() => import('./home/LastNewAdsSwiper'));
+const HomeLastNewComp = dynamic(() => import('./home/HomeLastNewComp'));
 
 const Layout = ({
   flag,
@@ -62,7 +63,10 @@ const Layout = ({
           content="Z1 news is media website collect all real estate news in Cambodia."
         />
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+        <link
+          rel="preconnect"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        />
       </Head>
       {/* Facebook Script */}
       <div id="fb-root"></div>
