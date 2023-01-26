@@ -1,10 +1,15 @@
-import { gql, useLazyQuery, useQuery } from '@apollo/client';
-import Router, { useRouter } from 'next/router';
-
-import CategoryPost_Comp from '../../components/category/CategoryPost_Comp';
-import TopBannerSlide from '../../components/category/TopBannerSlide';
-import Layout from '../../components/Layout';
-import SidebarComp from '../../components/sidebar/SidebarComp';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+const CategoryPost_Comp = dynamic(
+  () => import('../../components/category/CategoryPost_Comp')
+);
+const TopBannerSlide = dynamic(
+  () => import('../../components/category/TopBannerSlide')
+);
+const Layout = dynamic(() => import('../../components/Layout'));
+const SidebarComp = dynamic(
+  () => import('../../components/sidebar/SidebarComp')
+);
 import client from '../../lib/apollo';
 import { GET_SEARCH } from '../../queries/general_data/GET_SEARCH';
 import { cleanGraphQLResponse } from '../../utils/clean-graphql-response';

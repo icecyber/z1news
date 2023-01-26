@@ -1,13 +1,20 @@
 import { useQuery } from '@apollo/client';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CategoryPost_Comp from '../../components/category/CategoryPost_Comp';
-import PaginationComp from '../../components/category/PaginationComp';
-import TopBannerSlide from '../../components/category/TopBannerSlide';
-import NewsCategoryPageTitle from '../../components/home/category/NewsCategoryPageTitle';
-import Layout from '../../components/Layout';
-import SidebarComp from '../../components/sidebar/SidebarComp';
+const CategoryPost_Comp = dynamic(
+  () => import('../../components/category/CategoryPost_Comp')
+);
+const TopBannerSlide = dynamic(
+  () => import('../../components/category/TopBannerSlide')
+);
+const NewsCategoryPageTitle = dynamic(
+  () => import('../../components/home/category/NewsCategoryPageTitle')
+);
+const Layout = dynamic(() => import('../../components/Layout'));
+const SidebarComp = dynamic(
+  () => import('../../components/sidebar/SidebarComp')
+);
 import client from '../../lib/apollo';
 import { GET_CATEGORY_POSTS } from '../../queries/service/GET_CATEGORY_PAGE';
 import { GET_HOMEPAGE } from '../../queries/service/GET_HOMEPAGE';

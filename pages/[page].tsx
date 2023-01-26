@@ -1,12 +1,11 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import TopBannerSlide from '../components/category/TopBannerSlide';
-const NewsCategoryComp = dynamic(
-  () => import('../components/home/category/NewsCategoryComp'),
-  { ssr: false }
+const TopBannerSlide = dynamic(
+  () => import('../components/category/TopBannerSlide')
 );
-import Layout from '../components/Layout';
-import SidebarComp from '../components/sidebar/SidebarComp';
+const SidebarComp = dynamic(() => import('../components/sidebar/SidebarComp'));
+const Layout = dynamic(() => import('../components/Layout'));
+
 import client from '../lib/apollo';
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';

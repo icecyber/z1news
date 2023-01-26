@@ -4,7 +4,8 @@ const NewsCategoryComp = dynamic(
   { ssr: false }
 );
 const SidebarComp = dynamic(() => import('../components/sidebar/SidebarComp'));
-import Layout from '../components/Layout';
+const Layout = dynamic(() => import('../components/Layout'));
+
 import client from '../lib/apollo';
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
