@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+
 import { LastPost, Tags } from '../../Types/Layout';
 
 const HomeLastNewComp = ({ lastnews }: { lastnews: LastPost }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import SidebarAds from './SidebarAds';
 import SidebarFacebook from './SidebarFacebook';
 import SidebarLastNews from './SidebarLastNews';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FooterHeading = ({ title }: any) => {
   return (
     <div className="relative my-5">

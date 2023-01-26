@@ -1,4 +1,3 @@
-import React from 'react';
 import FooterHeading from './FooterHeading';
 
 const FooterAboutComp = ({ about }: any) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import SidebarTitle from './SidebarTitle';
 
 const SidebarVideo = ({ video }: any) => {
@@ -13,7 +12,6 @@ const SidebarVideo = ({ video }: any) => {
             height=""
             src={`https://www.youtube-nocookie.com/embed/${vdo.embed.ytVideoId}`}
             title="YouTube video player"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

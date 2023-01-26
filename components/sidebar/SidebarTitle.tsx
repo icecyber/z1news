@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SidebarTitle = ({ title }: any) => {
   return (
     <div className="bg-[#f5f5f5] my-3 border-b-secondaryColor border-b-2">

@@ -1,6 +1,6 @@
 import { gql, useLazyQuery, useQuery } from '@apollo/client';
 import Router, { useRouter } from 'next/router';
-import React from 'react';
+
 import CategoryPost_Comp from '../../components/category/CategoryPost_Comp';
 import TopBannerSlide from '../../components/category/TopBannerSlide';
 import Layout from '../../components/Layout';

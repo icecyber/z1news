@@ -1,4 +1,3 @@
-import React from 'react';
 import { NewsCategoryComp } from '../../../Types/CategoryNews';
 import CategoryBanner from './CategoryBanner';
 import CategoryBigPost from './CategoryBigPost';

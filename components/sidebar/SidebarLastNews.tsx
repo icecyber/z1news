@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+
 import SidebarTitle from './SidebarTitle';
 
 const SidebarLastNews = ({ lastnews }: any) => {

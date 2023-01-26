@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+
 import FooterHeading from './FooterHeading';
 
 const FooterContact = ({ contactinfo }: any) => {
