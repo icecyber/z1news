@@ -3,8 +3,8 @@ const NewsCategoryComp = dynamic(
   () => import('../components/home/category/NewsCategoryComp'),
   { ssr: false }
 );
+const SidebarComp = dynamic(() => import('../components/sidebar/SidebarComp'));
 import Layout from '../components/Layout';
-import SidebarComp from '../components/sidebar/SidebarComp';
 import client from '../lib/apollo';
 import { GET_HOMEPAGE } from '../queries/service/GET_HOMEPAGE';
 import { cleanGraphQLResponse } from '../utils/clean-graphql-response';
