@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import FooterHeading from './FooterHeading';
 
-const FooterLastNewsComp = ({ lastnews, about }: any) => {
+const FooterLastNewsComp = ({ lastnews }: any) => {
   return (
     <div>
       {/* LastNews */}

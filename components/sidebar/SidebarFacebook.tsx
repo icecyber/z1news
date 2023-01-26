@@ -1,7 +1,5 @@
 import SidebarTitle from './SidebarTitle';
 
-type Props = {};
-
 const SidebarFacebook = () => {
   return (
     <div className="">

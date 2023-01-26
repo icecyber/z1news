@@ -1,8 +1,4 @@
-import Link from 'next/link';
-
 import { NewsCategoryTitle } from '../../../Types/CategoryNews';
-
-type Props = {};
 
 const NewsCategoryPageTitle = ({ title, categorylink }: NewsCategoryTitle) => {
   return (

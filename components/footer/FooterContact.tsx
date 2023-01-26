@@ -6,7 +6,7 @@ const FooterContact = ({ contactinfo }: any) => {
   return (
     <div className="xl:order-first">
       <FooterHeading title="ទំនាក់ទំនង" />
-      <div className="">
+      <div>
         <h1 className="text-lg font-bold text-[#d4d4d4]">អាសយដ្ឋាន</h1>
         <ul className="text-[#d4d4d4]">
           {contactinfo.children.map((contact: any) => (

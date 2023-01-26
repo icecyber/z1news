@@ -3,8 +3,6 @@ import Link from 'next/link';
 
 import SidebarTitle from './SidebarTitle';
 
-type Props = {};
-
 const SidebarSponsor = ({ sponsor }: any) => {
   return (
     <div>

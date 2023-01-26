@@ -13,8 +13,6 @@ iframe {
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: 'Battambang';
   line-height: 2;
   word-wrap: break-word;
@@ -40,16 +38,6 @@ a {
 }
 .koulen {
   font-family: 'Koulen', cursive !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
 
 /* Topnav */
