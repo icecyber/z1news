@@ -13,13 +13,16 @@ const SidebarSponsor = ({ sponsor }: any) => {
             href={sponsor.custompage_externallink.externalLink}
             key={sponsor.id}
           >
-            <div className="w-full h-auto ">
-              <Image
-                src={sponsor.featuredImage.sourceUrl}
-                alt={sponsor.featuredImage.title}
-                width={1000}
-                height={400}
-              ></Image>
+            <div className="w-full h-full relative">
+              <video
+                src={sponsor.custompage_externallink.posterBanner.mediaItemUrl}
+                className="object-contain h-full w-[1400px]"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              />
             </div>
           </Link>
         ))}
