@@ -2,8 +2,6 @@ import Link from 'next/link';
 
 import FooterHeading from './FooterHeading';
 
-type Props = {};
-
 const FooterSocialMedia = ({ socialmedia }: any) => {
   return (
     <div>

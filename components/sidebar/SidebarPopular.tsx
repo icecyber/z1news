@@ -1,8 +1,8 @@
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import SidebarTitle from './SidebarTitle';
+import dynamic from 'next/dynamic';
+const SidebarTitle = dynamic(() => import('./SidebarTitle'));
 
 const SidebarPopular = ({ popularnews }: any) => {
   return (

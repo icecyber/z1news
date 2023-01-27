@@ -1,9 +1,10 @@
-import SidebarAds from './SidebarAds';
-import SidebarFacebook from './SidebarFacebook';
-import SidebarLastNews from './SidebarLastNews';
-import SidebarPopular from './SidebarPopular';
-import SidebarSponsor from './SidebarSponsor';
-import SidebarVideo from './SidebarVideo';
+import dynamic from 'next/dynamic';
+const SidebarAds = dynamic(() => import('./SidebarAds'));
+const SidebarFacebook = dynamic(() => import('./SidebarFacebook'));
+const SidebarLastNews = dynamic(() => import('./SidebarLastNews'));
+const SidebarPopular = dynamic(() => import('./SidebarPopular'));
+const SidebarSponsor = dynamic(() => import('./SidebarSponsor'));
+const SidebarVideo = dynamic(() => import('./SidebarVideo'));
 
 const SidebarComp = ({ popularnews, video, sponsor, ads, lastnews }: any) => {
   return (
