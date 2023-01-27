@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
 
 const nextConfig = {
   reactStrictMode: false,
@@ -10,5 +7,9 @@ const nextConfig = {
     domains: ['wp4.z1flexiblesolution.com', 'localhost', 'facebook.com'],
   },
 };
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 module.exports = withBundleAnalyzer(nextConfig);
