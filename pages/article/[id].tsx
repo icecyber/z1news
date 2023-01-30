@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { gql, useQuery } from '@apollo/client';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
@@ -31,7 +32,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SidebarTitle from '../../components/sidebar/SidebarTitle';
 import { Related_Post } from '../../queries/general_data/Related_Post';
-import dynamic from 'next/dynamic';
 
 const PostDetail = ({ data }: any) => {
   const GetPostData = cleanGraphQLResponse(data);
