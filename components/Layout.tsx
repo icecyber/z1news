@@ -24,7 +24,6 @@ const Layout = ({
   children,
   menu,
   lastposts,
-  footerbg,
   about,
   bottombanner,
   lastnewbanner,
@@ -106,7 +105,7 @@ const Layout = ({
                   </button>
                 ))}
                 {/* DropDown Menu Hidden by deafult */}
-                <ul className="dropdown-menu hidden absolute z-10 bg-[#343A40] w-[160px] h-[98px] rounded-[4px] top-11 py-[10px] ">
+                <ul className="dropdown-menu hidden absolute z-10 bg-[#343A40] w-[160px] h-[98px] rounded-[4px] top-[34px] py-[10px] ">
                   {flag.children.map((lang: Langauge) => (
                     <Link
                       key={lang.id}
