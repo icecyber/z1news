@@ -39,6 +39,7 @@ const PostDetail = ({ data }: any) => {
   const DATA = cleanGraphQLResponse(HomePage?.data);
   const detailCategoryID = GetPostData.PostDetail.categories[0].id;
   const [releateState, setRelateState] = useState([]);
+
   useEffect(() => {
     const FetchRelated_Post = async () => {
       const Relate = await client.query({
